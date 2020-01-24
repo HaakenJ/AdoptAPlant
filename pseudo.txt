@@ -1,0 +1,26 @@
+Plan of attack
+
+Set up raspberry pi
+    - Attach heatsinks and assemble case
+    - Install OS
+    - Set up wifi
+    - Set up SSH
+    - Install Node js and Git
+Learn to use the pi
+    - Follow an LED tutorial for the pi
+Get the water pump working
+    - Wire up the water pump and write a script to run it for 5 seconds
+Get the sensors working
+    - Wire up temp and humidity sensors and write script to return temp and 
+    humidity.
+Get camera working
+    - Wire camera up
+    - Get camera to take pictures and video and save to pi
+    - Set up either cron job or Node module to take a picture at intervals
+    - See if you can get live streaming working on local
+Set up Express server and port forwarding
+    - Set up the port forwarding a figure out how to access pi from outside
+    of the network.
+    - Set up get request handler to send temp and humidity data and pictures
+    - Set up put request handler to start water pump
+    
