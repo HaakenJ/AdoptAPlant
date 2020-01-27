@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/HaakenJ/AdoptAPlant#readme",
   "dependencies": {
-    "node-dht-sensor": "^0.4.0"
+    "node-dht-sensor": "^0.4.0",
+    "onoff": "^5.0.1"
   }
 }
