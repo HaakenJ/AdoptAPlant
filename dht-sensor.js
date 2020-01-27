@@ -20,4 +20,4 @@ function readSensor() {
 	.catch(err => console.log(`There was an error: ${err}`));
 };
 
-readSensor();
+module.exports = readSensor();
