@@ -19,6 +19,7 @@ IP address so that the domain name gets converted to 10.0.0.128:80?
 * Run local server with all things connected to simply run as a demo of how things work
 * Have plant and light with you in a room to show the water pumping, turning
     the light on and off, etc etc.
+* Running the whole program locally also allows you to live stream the camera.
 * Use LIFX bulb as the light for the plant so that you can easily turn it 
     on and off with the program.
 * Set up a function for the user to create a light schedule, this could create
@@ -30,3 +31,4 @@ IP address so that the domain name gets converted to 10.0.0.128:80?
     - This also shows how it could be mass produced.
     - Attach a fan to the raspberry Pi so that users can also turn the fan on 
         and off
+
