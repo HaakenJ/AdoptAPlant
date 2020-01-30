@@ -12,3 +12,21 @@
 that I assigned to my pi like so 10.0.0.128:80 to actually load the page?
 * If it is set up with a domain name, is that name connected to that static
 IP address so that the domain name gets converted to 10.0.0.128:80?
+* Should I get SSL set up on the server?
+
+
+# Set up whole project as a local demo version.
+* Run local server with all things connected to simply run as a demo of how things work
+* Have plant and light with you in a room to show the water pumping, turning
+    the light on and off, etc etc.
+* Use LIFX bulb as the light for the plant so that you can easily turn it 
+    on and off with the program.
+* Set up a function for the user to create a light schedule, this could create
+    a cronjob based on their choices using a cronjob generator.
+
+* Create light hanger using pvc pipes, attach pi and all hardware to a board
+    that can connect to the pvc setup, and have a water resevoir also attached
+    so that the entire setup is standalone minus the computer.  
+    - This also shows how it could be mass produced.
+    - Attach a fan to the raspberry Pi so that users can also turn the fan on 
+        and off
