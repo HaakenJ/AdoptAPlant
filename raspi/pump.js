@@ -1,7 +1,7 @@
 const Gpio = require("onoff").Gpio;
 
 // Function to toggle the running state of the water pump.
-function togglepump() {
+module.exports = function togglepump() {
     // Check if GPIO pins are accessible from current environment.
     if (Gpio.accessible) {
         // Use GPIO pin 27 and specify that it is output.
@@ -14,5 +14,3 @@ function togglepump() {
         "Please ensure that this code is running on a raspberryPi.");
     }
 };
-
-togglepump();

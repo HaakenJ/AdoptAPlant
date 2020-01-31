@@ -2,7 +2,7 @@
 const sensor = require("node-dht-sensor").promises;
 
 
-function readSensor() {
+module.exports = function readSensor() {
     // Initialize sensor, max retries.
     // Sensor is a dht11 on GPIO port 17.
     sensor.setMaxRetries(10);
@@ -21,5 +21,3 @@ function readSensor() {
         })
 	.catch(err => console.log(`Could not read sensor data: ${err}`));
 };
-
-module.exports = readSensor();
