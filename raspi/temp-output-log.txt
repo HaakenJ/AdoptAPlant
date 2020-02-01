@@ -60,3 +60,9 @@ temp: 64.4 degrees F, humidity: 66.0% at Thu Jan 30 2020 20:31:10 GMT-0800 (Paci
 temp: 75.2 degrees F, humidity: 48.0% at Thu Jan 30 2020 20:40:01 GMT-0800 (Pacific Standard Time).
 temp: 82.4 degrees F, humidity: 38.0% at Thu Jan 30 2020 20:50:02 GMT-0800 (Pacific Standard Time).
 temp: 82.4 degrees F, humidity: 34.0% at Thu Jan 30 2020 21:00:02 GMT-0800 (Pacific Standard Time).
+temp: 71.6 degrees F, humidity: 67.0% at Fri Jan 31 2020 19:50:03 GMT-0800 (Pacific Standard Time).
+temp: 69.80000000000001 degrees F, humidity: 65.0% at Fri Jan 31 2020 20:00:01 GMT-0800 (Pacific Standard Time).
+temp: 69.80000000000001 degrees F, humidity: 66.0% at Fri Jan 31 2020 20:10:01 GMT-0800 (Pacific Standard Time).
+temp: 69.80000000000001 degrees F, humidity: 63.0% at Fri Jan 31 2020 20:20:02 GMT-0800 (Pacific Standard Time).
+temp: 66.2 degrees F, humidity: 69.0% at Fri Jan 31 2020 20:30:05 GMT-0800 (Pacific Standard Time).
+temp: 66.2 degrees F, humidity: 69.0% at Fri Jan 31 2020 20:40:02 GMT-0800 (Pacific Standard Time).
