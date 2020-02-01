@@ -2,7 +2,7 @@ const sensor = require("node-dht-sensor").promises;
 const fs = require("fs");
 
 
-module.exports = function readSensor() {
+function readSensor() {
     // Initialize sensor, max retries.
     // Sensor is a dht11 on GPIO port 17.
     sensor.setMaxRetries(10);
@@ -15,17 +15,9 @@ module.exports = function readSensor() {
             const tempF = res.temperature.toFixed(1) * 1.8 + 32;
             const humidity = res.humidity.toFixed(1);
             const time = new Date();
-            fs.appendFile("./templog", 
-                `${tempF}, 
-                ${humidity}, 
-                ${time.getMinutes()}, 
-                ${time.getHours()}, 
-                ${time.getDate()}, 
-                ${time.getMonth()}`, 
-                err => {
-                    if (err) throw err;
-                    console.log("Temp and humidity have been saved.");
-            });
+            console.log(`${tempF},${humidity},${time.getMinutes()},${time.getHours()},${time.getDate()},${time.getMonth()}`);
         })
         .catch(err => console.log(`Could not read sensor data: ${err}`));
 };
+
+readSensor();
