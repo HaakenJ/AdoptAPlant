@@ -1,5 +1,5 @@
-
 const sensor = require("node-dht-sensor").promises;
+const fs = require("fs");
 
 
 module.exports = function readSensor() {
@@ -14,9 +14,18 @@ module.exports = function readSensor() {
         .then(res => {
             const tempF = res.temperature.toFixed(1) * 1.8 + 32;
             const humidity = res.humidity.toFixed(1);
-            console.log(`temp: ${tempF} degrees F, ` + 
-                `humidity: ${humidity}% ` +
-                `at ${new Date()}.`)
+            const time = new Date();
+            fs.appendFile("./templog", 
+                `${tempF}, 
+                ${humidity}, 
+                ${time.getMinutes()}, 
+                ${time.getHours()}, 
+                ${time.getDate()}, 
+                ${time.getMonth()}`, 
+                err => {
+                    if (err) throw err;
+                    console.log("Temp and humidity have been saved.");
+            });
         })
-	    .catch(err => console.log(`Could not read sensor data: ${err}`));
+        .catch(err => console.log(`Could not read sensor data: ${err}`));
 };
