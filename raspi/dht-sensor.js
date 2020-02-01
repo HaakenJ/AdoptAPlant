@@ -16,8 +16,7 @@ module.exports = function readSensor() {
             const humidity = res.humidity.toFixed(1);
             console.log(`temp: ${tempF} degrees F, ` + 
                 `humidity: ${humidity}% ` +
-                `at ${new Date()}.`
-	    );
+                `at ${new Date()}.`)
         })
-	.catch(err => console.log(`Could not read sensor data: ${err}`));
+	    .catch(err => console.log(`Could not read sensor data: ${err}`));
 };
