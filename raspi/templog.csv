@@ -1,4 +1,4 @@
-TEMP,HUMIDTY,MINUTE,HOUR,DAY,MONTH
+temp,humidity,minute,hour,day,month
 68.2,44,50,10,1,2
 65.2,42,51,10,1,2
 63.2,41,52,10,1,2
