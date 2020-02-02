@@ -22,7 +22,7 @@ app.get("/api/templog", (req, res) => {
     .pipe(csv())
     .on("data", data => results.push(data))
     .on("end", () => {
-        results = results.slice(results.length - 24,);
+        results = results.slice(results.length - 5,);
         return res.send(results);
     });
 });
