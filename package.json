@@ -2,13 +2,13 @@
   "name": "adoptaplant",
   "version": "1.0.0",
   "description": "",
-  "main": "dht-sensor.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HaakenJ/AdoptAPlant.git"
+    "url": "https://github.com/HaakenJ/AdoptAPlant"
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/HaakenJ/AdoptAPlant#readme",
   "dependencies": {
-    "node-dht-sensor": "^0.4.0",
-    "onoff": "^5.0.1"
+    "express": "^4.17.1",
+    "onoff": "^5.0.1",
+    "sequelize": "^5.21.3"
   }
 }
