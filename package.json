@@ -19,6 +19,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "onoff": "^5.0.1",
+    "csv-parser": "^2.3.2",
+    "node-dht-sensor": "^0.4.0",
     "sequelize": "^5.21.3"
   }
 }
