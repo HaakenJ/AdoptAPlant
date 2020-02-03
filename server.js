@@ -8,6 +8,19 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// PassportJS
+let passport = require('passport');
+let session = require('express-session');
+
+app.use(session({
+  secret: 'tutors are awesome',
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+  require('./config/passport');
+
 // Static Assets 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
