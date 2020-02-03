@@ -6,7 +6,7 @@ const pump = require("./pump");
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8888;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
