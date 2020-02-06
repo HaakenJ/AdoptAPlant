@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const csv = require("csv-parser");
 const path = require("path");
-// const pump = require("./pump");
+const pump = require("./pump");
 const setLightState = require("./light");
 
 const app = express();

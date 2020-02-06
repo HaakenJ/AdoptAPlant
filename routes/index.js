@@ -1,4 +1,8 @@
 const router = require("express").Router();
+const fs = require("fs");
+const csv = require("csv-parser");
+const pump = require("./pump");
+const setLightState = require("./light");
 
 router.get("/api/templog", (req, res) => {
     let results = [];
