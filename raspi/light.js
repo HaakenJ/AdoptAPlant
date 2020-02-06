@@ -1,22 +1,17 @@
 require("dotenv").config();
 const axios = require("axios");
 
-module.exports = function setLightState(power = off, mode = night) {
+// Function to turn lights on or off,
+module.exports = function setLightState(power = off) {
     const token = process.env.LIGHT_TOKEN;
-    let color;
 
     try {
         if (power != "on" && power != "off") {
             throw `You need to set power to 'on' or 'off'. Exititing.`;
         }
-        if (mode != "day" && mode != "night") {
-            throw `The only light modes are day and night.`;
-        } 
     } catch {
         return;
     }
-
-    mode === "day" ? color = "white": color = "green";
 
     axios({
         headers: {

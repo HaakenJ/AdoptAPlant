@@ -38,7 +38,7 @@ app.put("/api/water", (req, res) => {
 })
 
 app.put("/api/light", (req, res) => {
-    setLightState(req.body.power, req.body.mode);
+    setLightState(req.body.power);
 })
 
 app.listen(PORT, () => {
