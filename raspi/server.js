@@ -2,7 +2,8 @@ const express = require("express");
 const fs = require("fs");
 const csv = require("csv-parser");
 const path = require("path");
-const pump = require("./pump");
+// const pump = require("./pump");
+const setLightState = require("./light");
 
 const app = express();
 
@@ -34,6 +35,10 @@ app.put("/api/water", (req, res) => {
         pump.shutOffPump();
         console.log("pump is off");
     }, 3000);
+})
+
+app.put("/api/light", (req, res) => {
+    setLightState(req.body.power);
 })
 
 app.listen(PORT, () => {
