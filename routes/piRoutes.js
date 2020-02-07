@@ -1,9 +1,11 @@
 const router = require("express").Router();
 const fs = require("fs");
 const csv = require("csv-parser");
+// These files need to be added once they are no longer being modified.
 const setPumpState = require("../controllers/pump");
 const setLightState = require("..controllers/light");
 
+// This route needs to be changed to use MongoDB
 router.get("/templog", (req, res) => {
     let results = [];
     fs.createReadStream("raspi/templog.csv")
@@ -15,6 +17,7 @@ router.get("/templog", (req, res) => {
     })
 })
 
+// Route to turn on water pump for 3 seconds
 router.put("/water", (req, res) => {
     setPumpState("on")
     .then(() => {
@@ -29,6 +32,7 @@ router.put("/water", (req, res) => {
     })
 })
 
+// Route to turn the light on or off.
 router.put("/light", (req, res) => {
     setLightState(req.body.power)
     .then(state => {

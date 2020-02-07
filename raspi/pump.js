@@ -13,6 +13,8 @@ function setPumpState(power = off) {
     })
 }
 
+module.exports = setPumpState;
+
 // function runPump() {
 //     return new Promise((resolve, reject) => {
 //         pump.write(0)
@@ -40,4 +42,3 @@ function setPumpState(power = off) {
 // exports.runPump = runPump;
 // exports.shutOffPump = shutOffPump;
 
-module.exports = setPumpState;
