@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const bookRoutes = require("./piRoutes");
+const piRoutes = require("./piRoutes");
 
 // Raspberry Pi Routes
-router.use("/pi", bookRoutes);
+router.use("/pi", piRoutes);
 
 module.exports = router;
