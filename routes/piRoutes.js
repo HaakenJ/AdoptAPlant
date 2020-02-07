@@ -15,22 +15,30 @@ router.get("/templog", (req, res) => {
     })
 })
 
-router.put("/water", (req, res) => {
-
-    // Turn on the water pump.
-    pump.runPump();
-    console.log("Pump is on");
-
-    // Shut the pump off after time interval.
-    setTimeout(() => {
-        pump.shutOffPump();
-        console.log("pump is off");
-    }, 3000);
+app.put("/api/water", (req, res) => {
+    pump.runPump()
+    .then(() => {
+        console.log("Pump is on");
+        setTimeout(() => {
+            pump.shutOffPump()
+            .then(() => console.log("pump is off"))
+        }, 3000);
+    })
+    .catch(err => {
+        console.log(`There was an error with the pump: ${err}`);
+    })
 })
 
-router.put("/light", (req, res) => {
-    setLightState(req.body.power);
-    res.end();
+app.put("/api/light", (req, res) => {
+    setLightState(req.body.power)
+    .then(state => {
+        console.log(`The power is now ${state}`);
+        res.status(200).end();
+    })
+    .catch(err => {
+        console.log(`There was an error with the light: ${err}`);
+        res.status(503).end();
+    })
 })
 
 module.exports = router;
