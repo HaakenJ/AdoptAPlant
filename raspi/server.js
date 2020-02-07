@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const csv = require("csv-parser");
 const path = require("path");
-const pump = require("./pump");
+// const pump = require("./pump");
 const setLightState = require("./light");
 
 const app = express();
@@ -30,19 +30,22 @@ app.get("/api/templog", (req, res) => {
     })
 })
 
-app.put("/api/water", (req, res) => {
-    pump.runPump()
-    .then(() => {
-        console.log("Pump is on");
-        setTimeout(() => {
-            pump.shutOffPump()
-            .then(() => console.log("pump is off"))
-        }, 3000);
-    })
-    .catch(err => {
-        console.log(`There was an error with the pump: ${err}`);
-    })
-})
+// // Route to turn on water pump for 3 seconds
+// app.put("/api/water", (req, res) => {
+//     setPumpState("on")
+//     .then(() => {
+//         console.log("Pump is on");
+//         setTimeout(() => {
+//             setPumpState("off")
+//             .then(() => console.log("pump is off"))
+//             .catch(err => console.log(`There was an error with 
+//             the pump: ${err}`));
+//         }, 3000);
+//     })
+//     .catch(err => {
+//         console.log(`There was an error with the pump: ${err}`);
+//     })
+// })
 
 app.put("/api/light", (req, res) => {
     setLightState(req.body.power)

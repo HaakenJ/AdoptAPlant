@@ -1,5 +1,5 @@
 const readFromDHT = require("./dht-sensor");
-const readSoilSensor = require("./soilSensor");
+const readSoilMoisture = require("./soilSensor");
 const mongoose = require("mongoose");
 const db = require("../models");
 
@@ -15,12 +15,12 @@ mongoose.connect(process.env.MONGODB_URI ||
 
 readFromDHT()
     .then((temp, humidity) => {
-        readSoilSensor()
-            .then(soilHumidity => {
+        readSoilMoisture()
+            .then(soilMoisture => {
                 const dataObj = {
                     "temp": temp,
                     "humidity": humidity,
-                    "soilHumidity": soilHumidity
+                    "soil-moisture": soilMoisture
                 };
                 db.Temp
                     .create(dataObj)

@@ -1,9 +1,9 @@
 const spi = require('spi-device');
 
-// This script will read the soil humidity sensor.  It will return a promise
-// that will resolve with the soil's humidity as a percentage.
+// This script will read the soil moisture sensor.  It will return a promise
+// that will resolve with the soil's moisture content as a percentage.
 
-function readSoilHumidity() {
+function readSoilMoisture() {
   return new Promise((resolve, reject) => {
     // The MCP3008 is on bus 0 and it's device 0
     const mcp3008 = spi.open(0, 0, err => {
@@ -33,7 +33,7 @@ function readSoilHumidity() {
       if (err) reject(err);
 
       mcp3008.transfer(message, (err, message) => {
-        if (err) throw err;
+        if (err) reject(err);
 
         // Get raw data.
         // Data comes in two meaningful bytes and one junk byte.
@@ -53,17 +53,23 @@ function readSoilHumidity() {
         const rawValue = ((message[0].receiveBuffer[1] & 0x03) << 8) +
           message[0].receiveBuffer[2];
 
-        // TODO: Write code to convert rawData to a percentage.
-        // 280 is completely wet, 575 is completely dry.
-        console.log(rawValue);
-        resolve(rawValue);
-      });
-    });
+        // Sensor reads 280 when completely wet, 575 is completely dry.
+        const dry = 575;
+        const wet = 280
+        const range = dry - wet;
+        const adjValue = rawValue - wet;
+        const percentDry = (adjValue / range) * 100;
+        const moistureContent = 100 - percentDry;
+        
 
+        console.log(moistureContent);
+        resolve(moistureContent);
+      })
+    })
   })
 }
 
-module.exports = readSoilHumidity;
+module.exports = readSoilMoisture;
 
 
 // looking like full water is a reading of 280

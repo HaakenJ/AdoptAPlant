@@ -25,6 +25,8 @@ router.put("/water", (req, res) => {
         setTimeout(() => {
             setPumpState("off")
             .then(() => console.log("pump is off"))
+            .catch(err => console.log(`There was an error with 
+            the pump: ${err}`));
         }, 3000);
     })
     .catch(err => {
