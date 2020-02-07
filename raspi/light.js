@@ -1,7 +1,10 @@
 require("dotenv").config();
 const axios = require("axios");
 
-// Function to turn lights on or off,
+// This script will turn the lights on or off and returns a promise that 
+// resolves with the current state of the light (on or off).
+
+
 module.exports = function setLightState(power = "off") {
 
     return new Promise((resolve, reject) => {

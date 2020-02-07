@@ -1,6 +1,10 @@
 const sensor = require("node-dht-sensor").promises;
 const fs = require("fs");
 
+// This script will read temperature and humidity from the DHT sensor and 
+// return a promise that resolves with the temperature and humidity.
+
+
 function readFromDHT() {
     // Initialize sensor, max retries.
     // Sensor is a dht11 on GPIO port 17.

@@ -1,5 +1,8 @@
 const spi = require('spi-device');
 
+// This script will read the soil humidity sensor.  It will return a promise
+// that will resolve with the soil's humidity as a percentage.
+
 function readSoilHumidity() {
   return new Promise((resolve, reject) => {
     // The MCP3008 is on bus 0 and it's device 0

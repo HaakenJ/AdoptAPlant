@@ -3,6 +3,9 @@ const readSoilSensor = require("./soilSensor");
 const mongoose = require("mongoose");
 const db = require("../models");
 
+// This script will be run by a cron job once every hour and will log the data
+// from the sensors into the MongoDB database.
+
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || 
     "mongodb://localhost/temphumiditylog" ||

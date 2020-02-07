@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const fs = require("fs");
 const csv = require("csv-parser");
-const pump = require("../controllers/pump");
+const setPumpState = require("../controllers/pump");
 const setLightState = require("..controllers/light");
 
 router.get("/templog", (req, res) => {
@@ -16,11 +16,11 @@ router.get("/templog", (req, res) => {
 })
 
 router.put("/water", (req, res) => {
-    pump.runPump()
+    setPumpState("on")
     .then(() => {
         console.log("Pump is on");
         setTimeout(() => {
-            pump.shutOffPump()
+            setPumpState("off")
             .then(() => console.log("pump is off"))
         }, 3000);
     })
