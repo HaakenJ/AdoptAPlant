@@ -1,7 +1,7 @@
 const sensor = require("node-dht-sensor").promises;
 const fs = require("fs");
 
-function logToMongo() {
+function logDHTtoDB() {
     // Initialize sensor, max retries.
     // Sensor is a dht11 on GPIO port 17.
     sensor.setMaxRetries(10);
@@ -24,7 +24,7 @@ function logToMongo() {
 }
 
 
-function readSensor() {
+function readDHTSensor() {
     // Initialize sensor, max retries.
     // Sensor is a dht11 on GPIO port 17.
     sensor.setMaxRetries(10);
@@ -47,4 +47,7 @@ function readSensor() {
     })
 }
 
-readSensor();
+exports.logDHTtoDB = logDHTtoDB;
+exports.readDHTSensor = readDHTSensor;
+
+readDHTSensor();

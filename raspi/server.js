@@ -13,6 +13,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("raspi"));
 
+
+// Routes
 app.get("/", (req, res) => {
     return res.sendFile(path.join(__dirname, "raspi/index.html"));
 })
