@@ -31,12 +31,17 @@ app.get("/api/templog", (req, res) => {
 })
 
 app.put("/api/water", (req, res) => {
-    pump.runPump();
-    console.log("Pump is on");
-    setTimeout(() => {
-        pump.shutOffPump();
-        console.log("pump is off");
-    }, 3000);
+    pump.runPump()
+    .then(() => {
+        console.log("Pump is on");
+        setTimeout(() => {
+            pump.shutOffPump()
+            .then(() => console.log("pump is off"))
+        }, 3000);
+    })
+    .catch(err => {
+        console.log(`There was an error with the pump: ${err}`);
+    })
 })
 
 app.put("/api/light", (req, res) => {
