@@ -15,7 +15,7 @@ router.get("/templog", (req, res) => {
     })
 })
 
-app.put("/api/water", (req, res) => {
+router.put("/water", (req, res) => {
     pump.runPump()
     .then(() => {
         console.log("Pump is on");
@@ -29,7 +29,7 @@ app.put("/api/water", (req, res) => {
     })
 })
 
-app.put("/api/light", (req, res) => {
+router.put("/light", (req, res) => {
     setLightState(req.body.power)
     .then(state => {
         console.log(`The power is now ${state}`);
