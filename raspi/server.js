@@ -40,8 +40,15 @@ app.put("/api/water", (req, res) => {
 })
 
 app.put("/api/light", (req, res) => {
-    setLightState(req.body.power);
-    res.end();
+    setLightState(req.body.power)
+    .then(state => {
+        console.log(`The power is now ${state}`);
+        res.status(200).end();
+    })
+    .catch(err => {
+        console.log(`There was an error with the light: ${err}`);
+        res.status(503).end();
+    })
 })
 
 app.listen(PORT, () => {

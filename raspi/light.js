@@ -12,7 +12,7 @@ module.exports = function setLightState(power = "off") {
                 throw `You need to set power to 'on' or 'off'. Exititing.`;
             }
         } catch {
-            reject();
+            reject("You need to set power to 'on' or 'off'.");
         }
 
         axios({
