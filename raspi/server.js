@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const csv = require("csv-parser");
 const path = require("path");
-// const pump = require("./pump");
+const pump = require("./pump");
 const setLightState = require("./light");
 
 const app = express();
@@ -25,8 +25,8 @@ app.get("/api/templog", (req, res) => {
     .on("end", () => {
         results = results.slice(results.length - 5,);
         return res.send(results);
-    });
-});
+    })
+})
 
 app.put("/api/water", (req, res) => {
     pump.runPump();
@@ -39,8 +39,9 @@ app.put("/api/water", (req, res) => {
 
 app.put("/api/light", (req, res) => {
     setLightState(req.body.power);
+    res.end();
 })
 
 app.listen(PORT, () => {
     console.log(`Test server listening on port: ${PORT}`);
-});
+})

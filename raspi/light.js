@@ -2,7 +2,7 @@ require("dotenv").config();
 const axios = require("axios");
 
 // Function to turn lights on or off,
-module.exports = function setLightState(power = off) {
+module.exports = function setLightState(power = "off") {
     const token = process.env.LIGHT_TOKEN;
 
     try {
@@ -21,8 +21,10 @@ module.exports = function setLightState(power = off) {
         method: "PUT",
         data: {
             "power": power,
-            "color": color,
+            "color": "white",
             "brightness": 1.0
         }  
-    }).then(res => console.log(`Light is now ${power}`));
+    })
+    .then(res => console.log(`Light is now ${power}`))
+    .catch(err => console.log("There was an error with the light. " + err));
 }
