@@ -5,7 +5,8 @@ const db = require("../models");
 
 mongoose.connect(
     process.env.MONGODB_URI ||
-    "mongodb://localhost/tempHumidity"
+    "mongodb://localhost/tempHumidity" ||
+    "mongodb://AdoptAPlant.hopto.org:8888"
 );
 
 
