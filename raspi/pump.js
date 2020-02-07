@@ -3,16 +3,26 @@ const Gpio = require("onoff").Gpio;
 const pump = new Gpio(27, "high");
 
 function runPump() {
-    pump.write(0)
-    .then(() => {
-        console.log("Pump should be on.");
+    return new Promise((resolve, reject) => {
+        pump.write(0)
+            .then(() => {
+                resolve();
+            })
+            .catch(err => {
+                reject(err);
+            })
     })
 }
 
 function shutOffPump() {
-    pump.write(1)
-    .then(() => {
-        console.log("Pump should be off");
+    return new Promise((resolve, reject) => {
+        pump.write(1)
+            .then(() => {
+                resolve();
+            })
+            .catch(err => {
+                reject(err);
+            })
     })
 }
 
