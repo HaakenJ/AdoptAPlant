@@ -9,7 +9,7 @@ class Welcome extends Component {
     render() {
         return (
             <div className="auth-wrapper">
-                <div className="auth-inner" style={{ margin: "auto" }}>
+                <div className="auth-inner" style={{ margin: "auto", width: "457px" }}>
                     <div className='Welcomebox'>
                         <div className="logo">
                             <img src={logo} alt="Logo" />
