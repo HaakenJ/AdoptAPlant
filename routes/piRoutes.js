@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const fs = require("fs");
 const csv = require("csv-parser");
-const pump = require("../controllers/pump");
-const setLightState = require("..controllers/light");
+const pump = require("../raspi/pump");
+const setLightState = require("../raspi/light");
 
 router.get("/templog", (req, res) => {
     let results = [];

@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 const app = express();
 
 // Middleware Definitions
@@ -31,7 +31,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo Database
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/adoptaplant");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/adoptaplant", {useNewUrlParser: true, useUnifiedTopology: true});
 
 
 app.listen(PORT, () => {
