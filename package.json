@@ -17,11 +17,8 @@
   },
   "homepage": "https://github.com/HaakenJ/AdoptAPlant#readme",
   "dependencies": {
-<<<<<<< HEAD
     "bcrypt": "^3.0.8",
-=======
     "axios": "^0.19.2",
->>>>>>> 9d610f24afaefa324e5274da4abe8bad8ece714d
     "csv-parser": "^2.3.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
