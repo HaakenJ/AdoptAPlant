@@ -1,10 +1,21 @@
-import React, { Component } from "react";
+import React, {Component} from 'react';
 
-export default class SignUp extends Component {
+class Signup extends Component {
+    state = {}
+    componentDidMount = () => {
+    }
+
     render() {
         return (
+            <div className="auth-wrapper">
+                <div className="auth-inner" style={{ margin: "auto" }}>
             <form>
                 <h3>Create User</h3>
+
+                <div className="form-group">
+                    <label>Username</label>
+                    <input type="Username" className="form-control" placeholder="Enter username" />
+                </div>
 
                 <div className="form-group">
                     <label>Email address</label>
@@ -17,8 +28,12 @@ export default class SignUp extends Component {
                 </div>
 
                 <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
-                
+
             </form>
+            </div>
+            </div>
         );
     }
 }
+
+export default Signup;
