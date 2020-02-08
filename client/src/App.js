@@ -3,25 +3,22 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Nav from './components/Nav'
-
-import Login from "./components/login.component";
-import SignUp from "./components/signup.component";
-import Welcome from './components/welcome.component';
+import UserLogin from './pages/login.js'
+import SignUp from "./pages/signup.js";
+import Welcome from './pages/welcome.js';
+import Landing from './pages/landing';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Nav />
-        <div className="auth-wrapper">
-          <div className="auth-inner">
-            <Switch>
-              <Route exact path='/' component={Welcome} />
-              <Route path="/log-in" component={Login} />
-              <Route path="/sign-up" component={SignUp} />
-            </Switch>
-          </div>
-        </div>
+        <Switch>
+          <Route exact path='/' component={Welcome} />
+          <Route path="/log-in" component={UserLogin} />
+          <Route path="/sign-up" component={SignUp} />
+          <Route path="/landing" component={Landing} />
+        </Switch>
       </div>
     </Router>
   );

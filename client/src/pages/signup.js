@@ -1,8 +1,14 @@
-import React, { Component } from "react";
+import React, {Component} from 'react';
 
-export default class SignUp extends Component {
+class Signup extends Component {
+    state = {}
+    componentDidMount = () => {
+    }
+
     render() {
         return (
+            <div className="auth-wrapper">
+                <div className="auth-inner" style={{ margin: "auto" }}>
             <form>
                 <h3>Create User</h3>
 
@@ -22,8 +28,12 @@ export default class SignUp extends Component {
                 </div>
 
                 <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
-                
+
             </form>
+            </div>
+            </div>
         );
     }
 }
+
+export default Signup;
