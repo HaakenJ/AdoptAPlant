@@ -88,7 +88,7 @@ body, html, .App, #root, .auth-wrapper {
   background-color: green;
 }
 
-img {
+.auth-inner img {
   border-radius: 50%;
   width: 200px;
   height: 200px;

@@ -13,8 +13,8 @@ export default class Welcome extends Component {
                 <p>Bringing the garden to you, one plant at a time</p>
                 <br />
                 
-                <button type="submit" className="btn btn-primary btn-flex">Log In</button>
-                <button type="submit" className="btn btn-primary btn-flex newuser">Sign Up</button>
+                <a href="/log-in" className="btn btn-primary btn-flex" role="button">Log In</a>
+                <a href="/sign-up" className="btn btn-primary btn-flex newuser" role="button">Sign Up</a>
             </div>
         );
     }
