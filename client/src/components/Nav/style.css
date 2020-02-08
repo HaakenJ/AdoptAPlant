@@ -1,0 +1,15 @@
+.navbar {
+    background-color: #ffffff4b !important;
+}
+.navbar-light {
+  background-color: #ffffff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+}
+.navbar img {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  border-color: white;
+  background-color: rgba(255, 255, 255, 0.507);
+}
