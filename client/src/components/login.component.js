@@ -7,8 +7,8 @@ export default class Login extends Component {
                 <h3>Login</h3>
 
                 <div className="form-group">
-                    <label>Email address</label>
-                    <input type="email" className="form-control" placeholder="Enter email" />
+                    <label>Username</label>
+                    <input type="username" className="form-control" placeholder="Enter Username" />
                 </div>
 
                 <div className="form-group">
@@ -17,7 +17,7 @@ export default class Login extends Component {
                 </div>
 
                 <button type="submit" className="btn btn-primary btn-block">Submit</button>
-                
+
             </form>
         );
     }

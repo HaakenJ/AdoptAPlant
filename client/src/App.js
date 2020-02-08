@@ -6,21 +6,24 @@ import Nav from './components/Nav'
 
 import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
+import Welcome from './components/welcome.component';
 
 function App() {
-  return (<Router>
-    <div className="App">
-      <Nav />
-      <div className="auth-wrapper">
-        <div className="auth-inner">
-          <Switch>
-            <Route exact path='/' component={Login} />
-            <Route path="/log-in" component={Login} />
-            <Route path="/sign-up" component={SignUp} />
-          </Switch>
+  return (
+    <Router>
+      <div className="App">
+        <Nav />
+        <div className="auth-wrapper">
+          <div className="auth-inner">
+            <Switch>
+              <Route exact path='/' component={Welcome} />
+              <Route path="/log-in" component={Login} />
+              <Route path="/sign-up" component={SignUp} />
+            </Switch>
+          </div>
         </div>
       </div>
-    </div></Router>
+    </Router>
   );
 }
 
