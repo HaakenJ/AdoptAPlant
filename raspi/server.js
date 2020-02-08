@@ -3,10 +3,11 @@ const fs = require("fs");
 const csv = require("csv-parser");
 const path = require("path");
 const pump = require("./pump");
+const setLightState = require("./light");
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8888;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -22,10 +23,10 @@ app.get("/api/templog", (req, res) => {
     .pipe(csv())
     .on("data", data => results.push(data))
     .on("end", () => {
-        results = results.slice(results.length - 24,);
+        results = results.slice(results.length - 5,);
         return res.send(results);
-    });
-});
+    })
+})
 
 app.put("/api/water", (req, res) => {
     pump.runPump();
@@ -36,6 +37,11 @@ app.put("/api/water", (req, res) => {
     }, 3000);
 })
 
+app.put("/api/light", (req, res) => {
+    setLightState(req.body.power);
+    res.end();
+})
+
 app.listen(PORT, () => {
     console.log(`Test server listening on port: ${PORT}`);
-});
+})
