@@ -1,15 +1,11 @@
 const router = require("express").Router();
 const fs = require("fs");
 const csv = require("csv-parser");
-<<<<<<< HEAD
-const pump = require("../raspi/pump");
-const setLightState = require("../raspi/light");
-=======
+
 // These files need to be added once they are no longer being modified.
 const setPumpState = require("../controllers/pump");
 const setLightState = require("..controllers/light");
 const controller = require("../controllers/piController");
->>>>>>> 2a22729bb1de07ed9b9e3b72297740bbcce9efa6
 
 // This route needs to be changed to use MongoDB
 router.get("/templog", (req, res) => {

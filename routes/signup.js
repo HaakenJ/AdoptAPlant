@@ -7,18 +7,17 @@ const passport = require('../config/passport');
 
 // New User Sign-Up
 router.post('/signup', (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
+  const { username, password } = req.body;
   
   // Check if username already exists
-  db.User.findOne({username: username})
+  db.User.findOne({ username: username })
     .then((user) => {
       if (user) {
         res.json({
           userAlreadyExists: "Username is taken, please submit a new username."
         });
       } else {
-        userController.create({
+        db.User.create({
           username: username,
           password: password
         }).then((dbUser) => {

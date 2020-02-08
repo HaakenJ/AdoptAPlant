@@ -1,5 +1,8 @@
 const express = require("express");
+let passport = require('passport');
+let session = require('express-session');
 const mongoose = require("mongoose");
+const MongoStore = require('connect-mongo')(session)
 const routes = require("./routes");
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -9,17 +12,22 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // PassportJS
-let passport = require('passport');
-let session = require('express-session');
+
 require('./config/passport');
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Connect to the Mongo Database
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/adoptaplant", {useNewUrlParser: true, useUnifiedTopology: true});
 
 app.use(session({
   secret: 'plants are awesome',
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
   resave: true,
   saveUninitialized: true
 }));
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 
 // Static Assets 
@@ -29,9 +37,6 @@ if (process.env.NODE_ENV === "production") {
 
 // Routing
 app.use(routes);
-
-// Connect to the Mongo Database
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/adoptaplant", {useNewUrlParser: true, useUnifiedTopology: true});
 
 
 app.listen(PORT, () => {
