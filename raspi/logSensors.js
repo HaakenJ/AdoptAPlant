@@ -10,7 +10,7 @@ const db = require("../models");
 mongoose.connect(process.env.MONGODB_URI ||
     "mongodb://localhost/temphumiditylog" ||
     // Not sure if this is the correct address.
-    "mongodb://AdoptAPlant.hopto.org:8888/temphumiditylog");
+    "mongodb://AdoptAPlant.hopto.org:8888/adoptaplant");
 
 
 readFromDHT()
