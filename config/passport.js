@@ -1,35 +1,35 @@
 let passport = require('passport');
 let LocalStrategy = require('passport-local').Strategy;
-let db = require('../models');
+let userController = require('../controllers/userController');
 
 // Use local strategy for authentication
 passport.use('local', new LocalStrategy(
-    {
-        usernameField: 'email',
-        passwordField: 'password'
-    },
-    function(email, password, cb) {
-        db.Account.findOne({
-            where: {
-                email: email
-            }
-        }).then(function(dbUser) {
-            if (!dbUser && !dbUser.validPassword(password)) {
-                return cb(null, false, {
-                    message: 'Incorrect email or password'
-                });
-            }
-            return cb(null, dbUser);
-        });
+    function (username, password, done) {
+        userController.findByUsername(username)
+            .then(function (dbUser) {
+                if (!dbUser && !dbUser.validPassword(password)) {
+                    return done(null, false, {
+                        message: 'Incorrect email or password'
+                    });
+                }
+                return done(null, dbUser);
+            }).catch(function(err) {
+                return done(err);
+            });
     }
 ));
 
-passport.serializeUser(function(user, cb){
-    cb(null, user);
+passport.serializeUser(function (user, done) {
+    done(null, { _id: user._id });
 });
 
-passport.deserializeUser(function(user, cb){
-    cb(null, false);
+passport.deserializeUser(function (id, done) {
+    userController.findById(id)
+        .then(function() {
+            done(null, user);
+        }).catch(function(err) {
+            return done(err);
+        });
 });
 
 module.exports = passport;
