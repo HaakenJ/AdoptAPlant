@@ -16,8 +16,8 @@ function readFromDHT() {
         // 11 is the sensor type (dht11) and 17 is the GPIO port number.
         sensor.read(11, 17)
             .then(res => {
-                const tempF = res.temperature.toFixed(1) * 1.8 + 32;
-                const humidity = res.humidity.toFixed(1);
+                const tempF = Math.round(res.temperature * 1.8 + 32);
+                const humidity = Math.round(res.humidity);
 
                 resolve(tempF, humidity);
             })

@@ -20,7 +20,7 @@ readFromDHT()
                 const dataObj = {
                     "temp": temp,
                     "humidity": humidity,
-                    "soil-moisture": soilMoisture
+                    "soilMoisture": soilMoisture
                 };
                 db.Temp
                     .create(dataObj)
