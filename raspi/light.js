@@ -1,30 +1,37 @@
 require("dotenv").config();
 const axios = require("axios");
 
-// Function to turn lights on or off,
+// This script will turn the lights on or off and returns a promise that 
+// resolves with the current state of the light (on or off).
+
 module.exports = function setLightState(power = "off") {
-    const token = process.env.LIGHT_TOKEN;
 
-    try {
-        if (power != "on" && power != "off") {
-            throw `You need to set power to 'on' or 'off'. Exititing.`;
+    return new Promise((resolve, reject) => {
+        const token = process.env.LIGHT_TOKEN;
+
+        try {
+            if (power != "on" && power != "off") {
+                throw `You need to set power to 'on' or 'off'. Exititing.`;
+            }
+        } catch {
+            reject(new Error("You need to set power to 'on' or 'off'."));
         }
-    } catch {
-        return;
-    }
 
-    axios({
-        headers: {
-            "Authorization": `Bearer ${token}`
-        },
-        url: "https://api.lifx.com/v1/lights/all/state",
-        method: "PUT",
-        data: {
-            "power": power,
-            "color": "white",
-            "brightness": 1.0
-        }  
+        axios({
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                },
+                url: "https://api.lifx.com/v1/lights/all/state",
+                method: "PUT",
+                data: {
+                    "power": power,
+                    "color": "white",
+                    "brightness": 1.0
+                }
+            })
+            .then(res => resolve(power))
+            .catch(err => {
+                reject(err);
+            });
     })
-    .then(res => console.log(`Light is now ${power}`))
-    .catch(err => console.log("There was an error with the light. " + err));
 }

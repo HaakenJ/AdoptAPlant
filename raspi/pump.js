@@ -1,34 +1,44 @@
 const Gpio = require("onoff").Gpio;
-// Initialize pump and start it.
+// Initialize pump on GPIO port 27 with signal set to high.
 const pump = new Gpio(27, "high");
 
-// Function to toggle the running state of the water pump.
+// This script turns the water pump on or off and returns a promise that 
+// resolves with the current state of the pump.
 
-function runPump() {
-    pump.write(0)
-    .then(() => {
-        console.log("Pump should be on.");
-    });
-};
+function setPumpState(power = off) {
+    return new Promise((resolve, reject) => {
+        pump.write(power === "on" ? 0: 1)
+            .then(() => resolve(power))
+            .catch(err => reject(err))
+    })
+}
 
-function shutOffPump() {
-    pump.write(1)
-    .then(() => {
-        console.log("Pump should be off");
-    });
-};
+module.exports = setPumpState;
 
-exports.runPump = runPump;
-exports.shutOffPump = shutOffPump;
+// function runPump() {
+//     return new Promise((resolve, reject) => {
+//         pump.write(0)
+//             .then(() => {
+//                 resolve();
+//             })
+//             .catch(err => {
+//                 reject(err);
+//             })
+//     })
+// }
 
-//function togglePump() {
-//    pump.write(1);
-//    pump.read()
-//        .then(value => pump.write(value ^ 1))
-//        .catch(err => console.log(err));
-//};
+// function shutOffPump() {
+//     return new Promise((resolve, reject) => {
+//         pump.write(1)
+//             .then(() => {
+//                 resolve();
+//             })
+//             .catch(err => {
+//                 reject(err);
+//             })
+//     })
+// }
 
-//setTimeout(togglePump, 3000);
+// exports.runPump = runPump;
+// exports.shutOffPump = shutOffPump;
 
-//runPump();
-//setTimeout(shutOffPump, 3000);

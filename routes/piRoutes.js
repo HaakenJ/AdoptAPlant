@@ -1,9 +1,11 @@
 const router = require("express").Router();
 const fs = require("fs");
 const csv = require("csv-parser");
-const pump = require("../controllers/pump");
+// These files need to be added once they are no longer being modified.
+const setPumpState = require("../controllers/pump");
 const setLightState = require("..controllers/light");
 
+// This route needs to be changed to use MongoDB
 router.get("/templog", (req, res) => {
     let results = [];
     fs.createReadStream("raspi/templog.csv")
@@ -15,22 +17,34 @@ router.get("/templog", (req, res) => {
     })
 })
 
+// Route to turn on water pump for 3 seconds
 router.put("/water", (req, res) => {
-
-    // Turn on the water pump.
-    pump.runPump();
-    console.log("Pump is on");
-
-    // Shut the pump off after time interval.
-    setTimeout(() => {
-        pump.shutOffPump();
-        console.log("pump is off");
-    }, 3000);
+    setPumpState("on")
+    .then(() => {
+        console.log("Pump is on");
+        setTimeout(() => {
+            setPumpState("off")
+            .then(() => console.log("pump is off"))
+            .catch(err => console.log(`There was an error with 
+            the pump: ${err}`));
+        }, 3000);
+    })
+    .catch(err => {
+        console.log(`There was an error with the pump: ${err}`);
+    })
 })
 
+// Route to turn the light on or off.
 router.put("/light", (req, res) => {
-    setLightState(req.body.power);
-    res.end();
+    setLightState(req.body.power)
+    .then(state => {
+        console.log(`The power is now ${state}`);
+        res.status(200).end();
+    })
+    .catch(err => {
+        console.log(`There was an error with the light: ${err}`);
+        res.status(503).end();
+    })
 })
 
 module.exports = router;

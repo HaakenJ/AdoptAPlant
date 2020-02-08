@@ -19,4 +19,28 @@ $(document).ready(() => {
             }
         });
     })
+    $("#light-on-btn").on("click", () => {
+        $.ajax({
+            url: "/api/light",
+            type: "PUT",
+            data: { power: "on" },
+            success: res => {
+                if (res.status === 200) {
+                    console.log('light is on');
+                }
+            }
+        });
+    })
+    $("#light-off-btn").on("click", () => {
+        $.ajax({
+            url: "/api/light",
+            type: "PUT",
+            data: { power: "off" },
+            success: res => {
+                if (res.status === 200) {
+                    console.log('light is off');
+                }
+            }
+        });
+    })
 });
