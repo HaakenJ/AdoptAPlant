@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api");
@@ -10,12 +9,11 @@ router.use("/api", apiRoutes);
 router.use(function(req, res) {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
-=======
+
 const router = require("express").Router();
 const piRoutes = require("./piRoutes");
 
 // Raspberry Pi Routes
 router.use("/pi", piRoutes);
->>>>>>> 9d610f24afaefa324e5274da4abe8bad8ece714d
 
 module.exports = router;
