@@ -4,6 +4,7 @@ const router = express.Router();
 const userController = require('../controllers/userController');
 const passport = require('../config/passport');
 
+
 router.use('/login', (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: 'landing',
@@ -16,6 +17,7 @@ router.use('/login', (req, res, next) => {
     };
     res.send(userInfo);
   }
+
 });
 
 module.exports = router;
