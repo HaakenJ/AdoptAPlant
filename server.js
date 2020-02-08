@@ -11,15 +11,16 @@ app.use(express.json());
 // PassportJS
 let passport = require('passport');
 let session = require('express-session');
+require('./config/passport');
 
 app.use(session({
-  secret: 'tutors are awesome',
+  secret: 'plants are awesome',
   resave: true,
   saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-  require('./config/passport');
+
 
 // Static Assets 
 if (process.env.NODE_ENV === "production") {

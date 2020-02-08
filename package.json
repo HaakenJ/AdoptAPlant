@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/HaakenJ/AdoptAPlant#readme",
   "dependencies": {
+    "bcrypt": "^3.0.8",
     "csv-parser": "^2.3.2",
     "express": "^4.17.1",
+    "mongoose": "^5.8.11",
     "node-dht-sensor": "^0.4.0",
     "onoff": "^5.0.1",
     "passport": "^0.4.1",
