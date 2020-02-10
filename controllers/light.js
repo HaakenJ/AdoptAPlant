@@ -4,7 +4,7 @@ const axios = require("axios");
 // This script will turn the lights on or off and returns a promise that 
 // resolves with the current state of the light (on or off).
 
-module.exports = function setLightState(power = "off") {
+function setLightState(power = "off") {
 
     return new Promise((resolve, reject) => {
         const token = process.env.LIGHT_TOKEN;
@@ -35,3 +35,7 @@ module.exports = function setLightState(power = "off") {
             });
     })
 }
+
+setLightState('on')
+.then(state => console.log(state))
+.catch(err => console.log(err));
