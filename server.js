@@ -19,7 +19,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Connect to the Mongo Database
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/adoptaplant", {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/adoptaplant" || "mongodb://10.0.0.128:8888/adoptaplant", {useNewUrlParser: true, useUnifiedTopology: false});
 
 app.use(session({
   secret: 'plants are awesome',
