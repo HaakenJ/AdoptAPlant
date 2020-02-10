@@ -8,7 +8,8 @@ class Signup extends Component {
     render() {
         return (
             <div className="auth-wrapper">
-                <div className="auth-inner" style={{ margin: "auto" }}>
+                <div className="auth-inner" style={{
+                    margin: "auto", width: "457px" }}>
             <form>
                 <h3>Create User</h3>
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class Landing extends Component {
     state = {}
     componentDidMount = () => {
@@ -8,28 +9,22 @@ class Landing extends Component {
     render() {
         return (
             <div className="auth-wrapper">
-                <div className="auth-inner" style={{ margin: "20px" }}>
+                <div className="auth-inner" style={{ width:"auto",margin: "20px" }}>
                     <div className="container-fluid">
-                        <div className="row justify-content-md-center">
-                            <div className="col col-md-3" id="containerLeft">col-md-4</div>
-                            <div className="col col-md-auto">
-                                <iframe src="" title="myFrame">
+                            <div className="embed-responsive embed-responsive-21by9">
+                                <iframe src="http://71.227.154.20:8081" className="embed-responsive-item" title="myFrame">
                                     Video Feed for the Plant
-                                </iframe >
+                                </iframe>
                             </div>
-                            <div className="col col-md-3" id="containerRight">
-                                col-md-4
-                                </div>
-                        </div>
                         <br />
-                        <div className="row justify-content-md-center">
+                        
                             <button
                                 type="submit"
                                 className=" btn btn-primary"
                                 id="water - btn">
                                 Water Plant
                             </button >
-                        </div >
+                        
                     </div>
                 </div>
             </div>
