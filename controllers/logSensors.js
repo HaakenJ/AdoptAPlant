@@ -14,12 +14,12 @@ mongoose.connect(process.env.MONGODB_URI ||
 
 
 readFromDHT()
-    .then((temp, humidity) => {
+    .then((sensorData) => {
         readSoilMoisture()
             .then(soilMoisture => {
                 const dataObj = {
-                    "temp": temp,
-                    "humidity": humidity,
+                    "temp": sensorData[0],
+                    "humidity": sensorData[1],
                     "soilMoisture": soilMoisture
                 };
                 db.Temp
