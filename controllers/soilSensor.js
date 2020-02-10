@@ -54,7 +54,7 @@ function readSoilMoisture() {
           message[0].receiveBuffer[2];
 
         // Sensor reads 280 when completely wet, 575 is completely dry.
-        const dry = 575;
+        const dry = 600;
         const wet = 280
         const range = dry - wet;
         const adjValue = rawValue - wet;
@@ -76,3 +76,4 @@ module.exports = readSoilMoisture;
 // full dry is about 575
 // It takes a minute or so for the sensor to fullly adjust to being in water.
 // adjusts instantly when out of water.
+readSoilMoisture();
