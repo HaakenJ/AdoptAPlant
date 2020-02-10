@@ -1,11 +1,11 @@
 let passport = require('passport');
 let LocalStrategy = require('passport-local').Strategy;
-let userController = require('../controllers/userController');
+let db = require('../models');
 
 // Use local strategy for authentication
 passport.use('local', new LocalStrategy(
     function (username, password, done) {
-        userController.findByUsername(username)
+        db.User.findOne({username: username})
             .then(function (dbUser) {
                 if (!dbUser && !dbUser.validPassword(password)) {
                     return done(null, false, {
@@ -24,7 +24,7 @@ passport.serializeUser(function (user, done) {
 });
 
 passport.deserializeUser(function (id, done) {
-    userController.findById(id)
+    db.User.findOne({_id: id})
         .then(function() {
             done(null, user);
         }).catch(function(err) {

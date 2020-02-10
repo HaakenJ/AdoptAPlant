@@ -17,6 +17,7 @@ router.post('/signup', (req, res) => {
           userAlreadyExists: "Username is taken, please submit a new username."
         });
       } else {
+        // If the username does not exist, create a new user.
         db.User.create({
           username: username,
           password: password
