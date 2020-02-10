@@ -4,7 +4,7 @@ let session = require('express-session');
 const mongoose = require("mongoose");
 const MongoStore = require('connect-mongo')(session)
 const routes = require("./routes");
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8888;
 const app = express();
 
 // Middleware Definitions
