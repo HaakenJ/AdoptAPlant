@@ -59,7 +59,7 @@ function readSoilMoisture() {
         const range = dry - wet;
         const adjValue = rawValue - wet;
         const percentDry = (adjValue / range) * 100;
-        const moistureContent = 100 - percentDry;
+        const moistureContent = Math.round(100 - percentDry);
         
 
         console.log(moistureContent);
