@@ -55,13 +55,13 @@ function readSoilMoisture() {
 
         // Sensor reads 280 when completely wet, 575 is completely dry.
         const dry = 600;
-        const wet = 280
+        const wet = 270;
         const range = dry - wet;
         const adjValue = rawValue - wet;
         const percentDry = (adjValue / range) * 100;
         const moistureContent = Math.round(100 - percentDry);
-        
 
+        console.log(rawValue);
         console.log(moistureContent);
         resolve(moistureContent);
       })
