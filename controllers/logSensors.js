@@ -8,7 +8,7 @@ const db = require("../models");
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI ||
-    "mongodb://localhost/temphumiditylog" ||
+    "mongodb://localhost/adoptaplant" ||
     // Not sure if this is the correct address.
     "mongodb://AdoptAPlant.hopto.org:8888/adoptaplant");
 
