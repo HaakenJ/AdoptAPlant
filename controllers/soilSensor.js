@@ -61,8 +61,6 @@ function readSoilMoisture() {
         const percentDry = (adjValue / range) * 100;
         const moistureContent = Math.round(100 - percentDry);
 
-        console.log(rawValue);
-        console.log(moistureContent);
         resolve(moistureContent);
       })
     })
@@ -72,8 +70,7 @@ function readSoilMoisture() {
 module.exports = readSoilMoisture;
 
 
-// looking like full water is a reading of 280
-// full dry is about 575
+// looking like full water is a reading at at the lowest 278
+// full dry is about 580
 // It takes a minute or so for the sensor to fullly adjust to being in water.
 // adjusts instantly when out of water.
-readSoilMoisture();

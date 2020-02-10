@@ -55,8 +55,3 @@ function printFromSensor() {
 module.exports = readFromDHT;
 
 printFromSensor();
-
-readFromDHT()
-.then((data) => {
-    console.log(`Temp: ${data[0]}, humidity: ${data[1]}`)
-});

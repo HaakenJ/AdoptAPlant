@@ -36,6 +36,4 @@ function setLightState(power = "off") {
     })
 }
 
-setLightState('on')
-.then(state => console.log(state))
-.catch(err => console.log(err));
+module.exports = setLightState;
