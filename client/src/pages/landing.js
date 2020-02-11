@@ -6,6 +6,7 @@ import WaterBtn from '../components/Buttons/WaterBtn'
 
 class Landing extends Component {
     state = {}
+
     componentDidMount = () => {
     }
 

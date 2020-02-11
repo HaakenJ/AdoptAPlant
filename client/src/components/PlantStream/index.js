@@ -1,8 +1,8 @@
 import React from "react";
 
-export function PlantStream() {
+export function PlantStream(props) {
     return(
-    <img src="http://adoptaplant.hopto.org:8081/" style={{ height: "100%", width: "100%", marginBottom: "25px" }} />
+        <img src={"http://adoptaplant.hopto.org:8081/"} style={{ height: "100%", width: "100%", marginBottom: "25px" }} />
     );
 }
 
