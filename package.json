@@ -34,7 +34,7 @@
     "express-session": "^1.17.0",
     "if-env": "^1.0.4",
     "mongodb": "^3.5.2",
-    "mongoose": "^5.8.11",
+    "mongoose": "^4.13.19",
     "node-dht-sensor": "^0.4.0",
     "nodemon": "^2.0.2",
     "onoff": "^5.0.1",

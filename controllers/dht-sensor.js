@@ -54,4 +54,4 @@ function printFromSensor() {
 
 module.exports = readFromDHT;
 
-printFromSensor();
+// printFromSensor();

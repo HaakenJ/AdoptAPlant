@@ -8,15 +8,17 @@ const db = require("../models");
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI ||
-    "mongodb://localhost/adoptaplant" ||
+    "mongodb://localhost:27017/adoptaplant" ||
     // Not sure if this is the correct address.
     "mongodb://AdoptAPlant.hopto.org:8888/adoptaplant");
 
 
 readFromDHT()
     .then((sensorData) => {
+        console.log(`Post DHT read data: ${sensorData}`);
         readSoilMoisture()
             .then(soilMoisture => {
+                console.log(`Soil moisture content: ${soilMoisture}`);
                 const dataObj = {
                     "temp": sensorData[0],
                     "humidity": sensorData[1],
