@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { relative } from 'path';
 
 
 class Landing extends Component {
@@ -9,25 +10,16 @@ class Landing extends Component {
     render() {
         return (
             <div className="auth-wrapper">
-                <div className="auth-inner" style={{ width:"auto",margin: "20px" }}>
-                    <div className="container-fluid">
-                            <div className="embed-responsive embed-responsive-21by9">
-                                <iframe src="http://71.227.154.20:8081" className="embed-responsive-item" title="myFrame">
-                                    Video Feed for the Plant
-                                </iframe>
-                            </div>
+                <div className="row">
+                    <div className="auth-inner col col-sm-3"></div>
+                    <div className="auth-inner col col-sm-4">
+                        <img src="http://adoptaplant.hopto.org:8081/" style={{ height: "80%", width: "80%", marginBottom: "25px" }} />
                         <br />
-                        
-                            <button
-                                type="submit"
-                                className=" btn btn-primary"
-                                id="water - btn">
-                                Water Plant
-                            </button >
-                        
-                    </div>
+                        <button type="submit" className=" btn btn-primary" id="water - btn">Water Plant</button >
+                    </div >
+                    <div className="auth-inner col col-sm-3"></div>
                 </div>
-            </div>
+            </div >
         );
     }
 }
