@@ -12,7 +12,7 @@ class Landing extends Component {
                 <div className="auth-inner" style={{ width:"auto",margin: "20px" }}>
                     <div className="container-fluid">
                             <div className="embed-responsive embed-responsive-21by9">
-                                <iframe src="http://71.227.154.20:8081" className="embed-responsive-item" title="myFrame">
+                                <iframe src="http://adoptaplant.hopto.org:8081" className="embed-responsive-item" title="myFrame">
                                     Video Feed for the Plant
                                 </iframe>
                             </div>
