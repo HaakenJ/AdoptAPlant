@@ -77,6 +77,9 @@ typings/
 # dotenv environment variables file
 .env
 
+# Firebase service-account password
+service-account.json
+
 # next.js build output
 .next
 © 2020 GitHub, Inc.
