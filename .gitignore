@@ -78,7 +78,7 @@ typings/
 .env
 
 # Firebase service-account password
-./controllers/service-account.json
+service-account.json
 
 # next.js build output
 .next
