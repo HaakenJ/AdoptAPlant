@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { relative } from 'path';
+import PlantStream from '../components/PlantStream'
+import WaterBtn from '../components/Buttons/WaterBtn'
 
 
 class Landing extends Component {
@@ -10,12 +12,12 @@ class Landing extends Component {
     render() {
         return (
             <div className="auth-wrapper">
-                <div className="row">
+                <div className="row" style={{margin: "0"}}>
                     <div className="auth-inner col col-sm-3"></div>
-                    <div className="auth-inner col col-sm-4">
-                        <img src="http://adoptaplant.hopto.org:8081/" style={{ height: "80%", width: "80%", marginBottom: "25px" }} />
+                    <div className="auth-inner col col-sm-5" >
+                        <PlantStream/>
                         <br />
-                        <button type="submit" className=" btn btn-primary" id="water - btn">Water Plant</button >
+                        <WaterBtn>Water Me</WaterBtn>
                     </div >
                     <div className="auth-inner col col-sm-3"></div>
                 </div>

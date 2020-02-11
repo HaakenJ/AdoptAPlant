@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from "../images/CBP-Logo-Web.png"
+import SubmitBtn from '../components/Buttons/SubmitBtn'
 
 class Welcome extends Component {
     state = {}
@@ -17,8 +18,8 @@ class Welcome extends Component {
                         <p>Bringing the garden to you, one plant at a time</p>
                         <br />
 
-                        <a href="/log-in" className="btn btn-primary btn-flex" role="button">Log In</a>
-                        <a href="/sign-up" className="btn btn-primary btn-flex newuser" role="button">Sign Up</a>
+                        <a href="/log-in"><SubmitBtn>Log In</SubmitBtn></a>
+                        <a href="/sign-up"><SubmitBtn>Sign Up</SubmitBtn></a>
                     </div>
                 </div>
             </div>
