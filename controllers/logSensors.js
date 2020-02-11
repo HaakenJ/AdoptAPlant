@@ -19,10 +19,16 @@ readFromDHT()
         readSoilMoisture()
             .then(soilMoisture => {
                 console.log(`Soil moisture content: ${soilMoisture}`);
+                const time = new Date();
                 const dataObj = {
                     "temp": sensorData[0],
                     "humidity": sensorData[1],
-                    "soilMoisture": soilMoisture
+                    "soilMoisture": soilMoisture,
+                    "minute": time.getMinutes(),
+                    "hour": time.getHours(),
+                    "day": time.getDay(),
+                    "month": time.getMonth(),
+                    "year": time.getFullYear()
                 };
                 db.Temp
                     .create(dataObj)
