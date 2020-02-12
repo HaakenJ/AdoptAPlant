@@ -13,21 +13,37 @@ const db = firebase.app().database();
 
 const ref = db.ref("commands/");
 
-ref.once("value", snap => {
-    if (snap.val().water) {
-        setPumpState("on")
-            .then(() => {
-                setTimeout(() => {
-                    setPumpState("off");
-                    ref.set({
-                        water: false
-                    })
-                    .then(() => process.exit())
-                    .catch(err =>  console.log(`There was an error writing to the database: ${err}`))
-                }, 4000);
-            })
-            .catch(err => {
-                console.log(`Error with water pump: ${err}`);
-            });
-    }
-})
+function checkDBRunPump() { 
+    ref.once("value", snap => {
+        if (snap.val().water) {
+            setPumpState("on")
+                .then(() => {
+                    setTimeout(() => {
+                        setPumpState("off");
+                        ref.set({
+                            water: false
+                        })
+                        //.then(() => process.exit())
+                        .catch(err =>  console.log(`There was an error writing to the database: ${err}`))
+                    }, 4000);
+                })
+                .catch(err => {
+                    console.log(`Error with water pump: ${err}`);
+                });
+        }
+    })
+}
+
+let count = 1;
+
+const pumpCheckInt = setInterval(() => {
+    checkDBRunPump();
+    console.log(`DB checked ${count} times`);
+    count++
+}, 5000);
+
+
+setTimeout(() => {
+    clearInterval(pumpCheckInt);
+    process.exit();
+}, 55 * 1000);
