@@ -29,7 +29,7 @@ const ref = db.ref("sensorData/");
 
 readFromDHT()
     .then((dhtData) => {
-        console.log(`Post DHT read data: ${dhtData}`);
+        console.log(`DHT data: ${dhtData}`);
         readSoilMoisture()
             .then(soilMoisture => {
                 console.log(`Soil moisture content: ${soilMoisture}`);

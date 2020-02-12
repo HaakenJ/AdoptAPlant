@@ -1,5 +1,5 @@
 const firebase = require("firebase");
-// const setPumpState = require("./pump");
+ const setPumpState = require("./pump");
 
 firebase.initializeApp({
     appName: "adoptaplant",
@@ -17,18 +17,14 @@ ref.once("value", snap => {
     if (snap.val().water) {
         setPumpState("on")
             .then(() => {
-                setTimeout(setPumpState("off"), 4000);
-            })
-            .then(() => {
-                ref.set({
-                    water: false
-                })
-                .then(() => {
-                    process.exit();
-                })
-                .catch(err => {
-                    console.log(`There was an error writing to the database: ${err}`);
-                })
+                setTimeout(() => {
+                    setPumpState("off");
+                    ref.set({
+                        water: false
+                    })
+                    .then(() => process.exit())
+                    .catch(err =>  console.log(`There was an error writing to the database: ${err}`))
+                }, 4000);
             })
             .catch(err => {
                 console.log(`Error with water pump: ${err}`);
