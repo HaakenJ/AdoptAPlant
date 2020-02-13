@@ -71,6 +71,9 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
+# VSCode debugger for Chrome
+.vscode
+
 # Yarn Integrity file
 .yarn-integrity
 
