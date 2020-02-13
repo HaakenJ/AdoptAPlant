@@ -4,7 +4,7 @@ const router = express.Router();
 const axios = require("axios");
 
 router.put("/light", (req, res) => {
-    const power;
+    let power;
     const token = process.env.LIGHT_TOKEN;
     req.body.power === "on" ? power = "on": power = "off";
 
@@ -20,10 +20,12 @@ router.put("/light", (req, res) => {
             "brightness": 1.0
         }
     })
+    .then(() => {
+        res.status(200).end();
+    })
     .catch(err => {
         console.log(`There was an error with the light: ${err}`);
     });
-
 })
 
 module.exports = router;
