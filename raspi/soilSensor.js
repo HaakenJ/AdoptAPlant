@@ -71,8 +71,5 @@ function readSoilMoisture() {
 
 module.exports = readSoilMoisture;
 
-
-// looking like full water is a reading of 280
-// full dry is about 575
 // It takes a minute or so for the sensor to fullly adjust to being in water.
 // adjusts instantly when out of water.
