@@ -15,9 +15,9 @@ function App() {
         <Nav />
         <Switch>
           <Route exact path='/' component={Welcome} />
-          <Route path="/log-in" component={UserLogin} />
-          <Route path="/sign-up" component={SignUp} />
-          <Route path="/landing" component={Landing} />
+          <Route exact path="/log-in" component={UserLogin} />
+          <Route exact path="/sign-up" component={SignUp} />
+          <Route exact path="/landing" component={Landing} />
         </Switch>
       </div>
     </Router>
