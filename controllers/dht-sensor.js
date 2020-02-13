@@ -18,8 +18,9 @@ function readFromDHT() {
             .then(res => {
                 const tempF = Math.round(res.temperature * 1.8 + 32);
                 const humidity = Math.round(res.humidity);
+                const values = [tempF, humidity];
 
-                resolve(tempF, humidity);
+                resolve(values);
             })
             .catch(err => {
                 reject(err);
@@ -53,4 +54,4 @@ function printFromSensor() {
 
 module.exports = readFromDHT;
 
-printFromSensor();
+// printFromSensor();

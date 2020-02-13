@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import API from '../utils/API';
+import SubmitBtn from '../components/Buttons/SubmitBtn'
 
 class Signup extends Component {
     // Constructor
@@ -78,6 +79,8 @@ class Signup extends Component {
                                 onChange={this.handleInputChange}
                             />
                         </div>
+
+                <SubmitBtn>Sign Up</SubmitBtn>
 
                         <button type="button" className="btn btn-primary btn-block" onClick={this.handleSubmit}>Sign Up</button>
                     </form>

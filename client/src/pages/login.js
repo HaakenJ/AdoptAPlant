@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router';
 import API from '../utils/API';
+import SubmitBtn from '../components/Buttons/SubmitBtn'
 
 class UserLogin extends Component {
 
@@ -67,7 +67,11 @@ class UserLogin extends Component {
                             />
                         </div>
 
+
                         <button type="button" className="btn btn-primary btn-block" onClick={this.handleSubmit}>Submit</button>
+
+                        <SubmitBtn>Log In</SubmitBtn>
+
 
                     </form>
                 </div>
