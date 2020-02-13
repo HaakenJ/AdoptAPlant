@@ -54,15 +54,13 @@ function readSoilMoisture() {
           message[0].receiveBuffer[2];
 
         // Sensor reads 280 when completely wet, 575 is completely dry.
-        const dry = 575;
-        const wet = 280
+        const dry = 600;
+        const wet = 270;
         const range = dry - wet;
         const adjValue = rawValue - wet;
         const percentDry = (adjValue / range) * 100;
-        const moistureContent = 100 - percentDry;
-        
+        const moistureContent = Math.round(100 - percentDry);
 
-        console.log(moistureContent);
         resolve(moistureContent);
       })
     })
@@ -72,7 +70,7 @@ function readSoilMoisture() {
 module.exports = readSoilMoisture;
 
 
-// looking like full water is a reading of 280
-// full dry is about 575
+// looking like full water is a reading at at the lowest 278
+// full dry is about 580
 // It takes a minute or so for the sensor to fullly adjust to being in water.
 // adjusts instantly when out of water.
