@@ -1,33 +1,28 @@
 import React, { Component } from 'react';
+import { relative } from 'path';
+import PlantStream from '../components/PlantStream'
+import WaterBtn from '../components/Buttons/WaterBtn'
 
 
 class Landing extends Component {
     state = {}
+
     componentDidMount = () => {
     }
 
     render() {
         return (
             <div className="auth-wrapper">
-                <div className="auth-inner" style={{ width:"auto",margin: "20px" }}>
-                    <div className="container-fluid">
-                            <div className="embed-responsive embed-responsive-21by9">
-                                <iframe src="http://adoptaplant.hopto.org:8081" className="embed-responsive-item" title="myFrame">
-                                    Video Feed for the Plant
-                                </iframe>
-                            </div>
+                <div className="row" style={{margin: "0"}}>
+                    <div className="auth-inner col col-sm-3"></div>
+                    <div className="auth-inner col col-sm-5" >
+                        <PlantStream/>
                         <br />
-                        
-                            <button
-                                type="submit"
-                                className=" btn btn-primary"
-                                id="water - btn">
-                                Water Plant
-                            </button >
-                        
-                    </div>
+                        <WaterBtn>Water Me</WaterBtn>
+                    </div >
+                    <div className="auth-inner col col-sm-3"></div>
                 </div>
-            </div>
+            </div >
         );
     }
 }

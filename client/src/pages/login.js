@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import SubmitBtn from '../components/Buttons/SubmitBtn'
 
 class UserLogin extends Component {
     state = {}
@@ -23,7 +23,7 @@ class UserLogin extends Component {
                             <input type="password" className="form-control" placeholder="Enter password" />
                         </div>
 
-                        <button type="submit" className="btn btn-primary btn-block">Submit</button>
+                        <SubmitBtn>Log In</SubmitBtn>
 
                     </form>
                 </div>

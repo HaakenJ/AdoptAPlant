@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import SubmitBtn from '../components/Buttons/SubmitBtn'
 
 class Signup extends Component {
     state = {}
@@ -28,7 +29,7 @@ class Signup extends Component {
                     <input type="password" className="form-control" placeholder="Enter password" />
                 </div>
 
-                <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
+                <SubmitBtn>Sign Up</SubmitBtn>
 
             </form>
             </div>
