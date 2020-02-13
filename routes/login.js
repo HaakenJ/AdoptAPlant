@@ -12,7 +12,7 @@ router.post('/log-in',
     const userInfo = {
       username: req.user.username
     };
-    res.send(userInfo);
+    res.send(userInfo)  ;
   }
 );
 

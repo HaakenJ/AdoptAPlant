@@ -1,6 +1,7 @@
-let passport = require('passport');
-let LocalStrategy = require('passport-local').Strategy;
-let db = require('../models');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const db = require('../models');
+require('dotenv').config();
 
 // Use local strategy for authentication
 passport.use('local', new LocalStrategy(
@@ -17,6 +18,20 @@ passport.use('local', new LocalStrategy(
                 return done(err);
             });
     }
+));
+
+// Facebook Strategy
+passport.use(new FacebookStrategy({
+    clientID: process.env.FACEBOOK_CLIENT_ID,
+    clientSecret: FACEBOOK_CLIENT_SECRET,
+    callbackURL: "/facebook/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({name: profile.displayName}, {name: profile.displayName,userid: profile.id}, function(err, user) {
+      if (err) { return done(err); }
+      done(null, user);
+    });
+  }
 ));
 
 passport.serializeUser(function (user, done) {

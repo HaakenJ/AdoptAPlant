@@ -16,5 +16,13 @@ export default {
           'Content-Type': 'application/json',
       }
     });
+  },
+  // Sends a post request to /log-in route in routes/log-in
+  loginFacebook: function(userData) {
+    return axios.get("/facebook", userData, {
+      headers: {
+          'Content-Type': 'application/json',
+      }
+    });
   }
 };
