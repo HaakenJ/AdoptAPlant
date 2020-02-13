@@ -44,13 +44,17 @@ class UserLogin extends Component {
 
     handleFacebookLogin(event) {
         event.preventDefault();
-        API.loginFacebook()
+        API.loginFacebook().then((dbUser) => {
+            if (dbUser) {
+                this.props.history.push('/landing')
+            }
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
     render() {
         return (
-            <div id="fb-root"></div>
-            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=1032537077124166&autoLogAppEvents=1"></script>
             <div className="auth-wrapper">
                 <div className="auth-inner" style={{margin: "auto", width: "457px"}}>
                     <form>
@@ -74,9 +78,8 @@ class UserLogin extends Component {
                             />
                         </div>
 
-                        <button type="button" className="btn btn-primary btn-block" onClick={this.handleSubmit}>Submit</button>
+                        <SubmitBtn onClick={this.handleSubmit}>Log In</SubmitBtn>
 
-                        <SubmitBtn>Log In</SubmitBtn>
                     </form>
                 </div>
             </div>
