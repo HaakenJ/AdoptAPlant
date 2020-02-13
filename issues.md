@@ -23,3 +23,17 @@ with the connection url. Not sure.
 * The container in middle of page extends into the nav-bar
 
 
+# Still to do
+
+* Write front-end routes for firebase and light
+* Write front-end code to display light button and sensor data
+* Decide if soil humidity should be displayed as a percentage or
+if the words 'very dry', 'dry', 'damp', 'wet', 'very wet', etc
+should be displayed depending on the percent range.
+    - This depends on what we think is easiest for the user to 
+    understand.
+* Figure out what should be displayed on the page after the raspi
+is no longer functional.
+* Set up actual plant
+* Presentation
+* Documentation
