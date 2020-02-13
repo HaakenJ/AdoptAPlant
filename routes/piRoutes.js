@@ -4,7 +4,7 @@ const csv = require("csv-parser");
 
 // These files need to be added once they are no longer being modified.
 const setPumpState = require("../controllers/pump");
-const setLightState = require("..controllers/light");
+const setLightState = require("../controllers/light");
 const controller = require("../controllers/piController");
 
 // This route needs to be changed to use MongoDB
