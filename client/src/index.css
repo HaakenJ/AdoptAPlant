@@ -69,6 +69,8 @@ body, html, .App, #root, .auth-wrapper {
 }
 .btn-primary {
   background-color: rgb(24, 109, 24);
+  outline: none !important;
+  border-style: none !important;
 }
 
 .auth-wrapper .Welcomebox {
