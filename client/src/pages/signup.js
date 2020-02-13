@@ -82,7 +82,7 @@ class Signup extends Component {
 
                 <SubmitBtn>Sign Up</SubmitBtn>
 
-                        <button type="button" className="btn btn-primary btn-block" onClick={this.handleSubmit}>Sign Up</button>
+                        <button type="button" className="btn btn-primary btn-block" onClick={this.handleSubmit}>Submit</button>
                     </form>
                 </div>
             </div>
