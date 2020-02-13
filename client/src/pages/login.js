@@ -67,10 +67,7 @@ class UserLogin extends Component {
                             />
                         </div>
 
-
-                        <button type="button" className="btn btn-primary btn-block" onClick={this.handleSubmit}>Submit</button>
-
-                        <SubmitBtn>Log In</SubmitBtn>
+                        <SubmitBtn onClick={this.handleSubmit}>Log In</SubmitBtn>
 
 
                     </form>
