@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { relative } from 'path';
 import PlantStream from '../components/PlantStream'
 import WaterBtn from '../components/Buttons/WaterBtn'
+import LightBtn from '../components/Buttons/LightBtn'
 
 
 class Landing extends Component {
@@ -19,6 +20,7 @@ class Landing extends Component {
                         <PlantStream/>
                         <br />
                         <WaterBtn>Water Me</WaterBtn>
+                        <LightBtn>Light Me</LightBtn>
                     </div >
                     <div className="auth-inner col col-sm-3"></div>
                 </div>
