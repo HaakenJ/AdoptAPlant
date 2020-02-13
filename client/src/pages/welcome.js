@@ -12,7 +12,7 @@ class Welcome extends Component {
             <div className="auth-wrapper">
                 <div className="auth-inner" style={{ margin: "auto", width: "457px" }}>
                     <div className='Welcomebox'>
-                        <img src={logo} className="logo" />
+                        <img src={logo} alt="plogo" className="logo" />
                         <br />
                         <h3>Welcome to Adopt-A-Plant</h3>
                         <p>Bringing the garden to you, one plant at a time</p>
