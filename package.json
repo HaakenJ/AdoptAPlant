@@ -28,6 +28,7 @@
     "bcrypt": "^3.0.8",
     "concurrently": "^5.1.0",
     "connect-mongo": "^3.2.0",
+    "cron": "^1.8.2",
     "csv-parser": "^2.3.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -42,5 +43,8 @@
     "path": "^0.12.7",
     "sequelize": "^5.21.3",
     "spi-device": "^3.0.0"
+  },
+  "optionalDependencies": {
+    "cron-time-generator": "^1.0.0"
   }
 }
