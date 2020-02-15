@@ -33,7 +33,7 @@ ref.on("value", snap => {
                         .catch(err => {
                             console.log(`There was an error writing to the database: ${err}`)
                         })
-                }, 1000);
+                }, 2000);
             })
             .catch(err => {
                 console.log(`Error with water pump: ${err}`);
