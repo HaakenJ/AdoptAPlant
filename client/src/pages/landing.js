@@ -8,18 +8,19 @@ import Nav from '../components/Nav'
 
 class Landing extends Component {
     state = {
-        isLoggedIn: true
+        isLoggedIn: false
     }
 
     componentDidMount = () => {
+        this.setState({isLoggedIn:true})
     }
 
     render() {
-        const isLoggedIn = this.state.isLoggedIn;
+        const isLoggedIn = this.state.isLoggedIn
         return (
             
             <div className="auth-wrapper">
-                <Nav />
+                <Nav isLoggedIn={isLoggedIn} />
                 <div className="row" style={{margin: "0"}}>
                     <div className="auth-inner col col-sm-3"></div>
                     <div className="auth-inner col col-sm-5" >

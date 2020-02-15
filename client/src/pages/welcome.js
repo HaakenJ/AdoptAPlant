@@ -5,17 +5,17 @@ import Nav from '../components/Nav'
 
 class Welcome extends Component {
     state = {
-        isLoggedIn: false
+        isLoggedIn: true
     }
     componentDidMount = () => {
+        this.setState({ isLoggedIn: false })
     }
 
     render() {
         const isLoggedIn = this.state.isLoggedIn;
         return (
-            
             <div className="auth-wrapper">
-                <Nav />
+                <Nav isLoggedIn={isLoggedIn} />
                 <div className="auth-inner" style={{ margin: "auto", width: "457px" }}>
                     <div className='Welcomebox'>
                         <img src={logo} alt="plogo" className="logo" />

@@ -52,7 +52,7 @@ class Signup extends Component {
         return (
             
             <div className="auth-wrapper">
-                <Nav />
+                <Nav isLoggedIn={isLoggedIn} />
                 <div className="auth-inner" style={{
                     margin: "auto", width: "457px"
                 }}>

@@ -38,6 +38,7 @@ class UserLogin extends Component {
         })).then((dbUser) => {
             if (dbUser) {
                 this.props.history.push('/landing');
+                this.setState({isLoggedIn:true})
             }
         }).catch((error) => {
             console.log(error);
@@ -50,7 +51,7 @@ class UserLogin extends Component {
         return (
             
             <div className="auth-wrapper">
-                <Nav />
+                <Nav isLoggedIn={isLoggedIn} />
                 <div className="auth-inner" style={{margin: "auto", width: "457px"}}>
                     <form>
                         <h3>Login</h3>
