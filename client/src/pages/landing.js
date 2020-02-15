@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { relative } from 'path';
 import PlantStream from '../components/PlantStream';
 import WaterBtn from '../components/Buttons/WaterBtn';
 import LightOnBtn from '../components/Buttons/LightOnBtn';
