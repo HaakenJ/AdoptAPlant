@@ -3,6 +3,7 @@ import { relative } from 'path';
 import PlantStream from '../components/PlantStream'
 import WaterBtn from '../components/Buttons/WaterBtn'
 import LightBtn from '../components/Buttons/LightBtn'
+import Nav from '../components/Nav'
 import API from '../utils/API'
 
 
@@ -10,10 +11,12 @@ class Landing extends Component {
     state = {
         humidity: 65,
         temp: 68,
-        soilMoisture: 30
+        soilMoisture: 30,
+      isLoggedIn: false
     }
     componentDidMount = () => {
         this.getSensorData();
+      this.setState({isLoggedIn:true});
     }
     getSensorData = () => {
         API.getSensorData()
@@ -30,8 +33,11 @@ class Landing extends Component {
     }
 
     render() {
+        const isLoggedIn = this.state.isLoggedIn
         return (
+            
             <div className="auth-wrapper">
+                <Nav isLoggedIn={isLoggedIn} />
                 <div className="row" style={{margin: "0"}}>
                     <div className="auth-inner col col-sm-3" id="ContainerLeft"></div>
                     <div className="auth-inner col col-sm-5" >

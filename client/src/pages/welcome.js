@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import logo from "../images/CBP-Logo-Web.png"
 import SubmitBtn from '../components/Buttons/SubmitBtn'
+import Nav from '../components/Nav'
 
 class Welcome extends Component {
-    state = {}
+    state = {
+        isLoggedIn: true
+    }
     componentDidMount = () => {
+        this.setState({ isLoggedIn: false })
     }
 
     render() {
+        const isLoggedIn = this.state.isLoggedIn;
         return (
             <div className="auth-wrapper">
+                <Nav isLoggedIn={isLoggedIn} />
                 <div className="auth-inner" style={{ margin: "auto", width: "457px" }}>
                     <div className='Welcomebox'>
                         <img src={logo} alt="plogo" className="logo" />
