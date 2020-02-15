@@ -26,5 +26,8 @@ export default {
   },
   toggleLight: function() {
     return axios.post('/light');
+  },
+  getLightState: function() {
+    return axios.get('/light');
   }
 };
