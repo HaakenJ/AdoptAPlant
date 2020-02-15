@@ -1,8 +1,7 @@
 
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Nav from './components/Nav'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserLogin from './pages/login.js'
 import SignUp from "./pages/signup.js";
 import Welcome from './pages/welcome.js';
