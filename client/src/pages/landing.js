@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import PlantStream from '../components/PlantStream'
-import WaterBtn from '../components/Buttons/WaterBtn'
-import LightBtn from '../components/Buttons/LightBtn'
-import Nav from '../components/Nav'
-import API from '../utils/API'
+import PlantStream from '../components/PlantStream';
+import WaterBtn from '../components/Buttons/WaterBtn';
+import LightOnBtn from '../components/Buttons/LightOnBtn';
+import LightOffBtn from '../components/Buttons/LightOffBtn';
+import Nav from '../components/Nav';
+import API from '../utils/API';
 
 
 class Landing extends Component {
@@ -11,12 +12,16 @@ class Landing extends Component {
         humidity: 65,
         temp: 68,
         soilMoisture: 30,
-      isLoggedIn: false
+        isLoggedIn: false,
+        lightState: 'off'
     }
+
     componentDidMount = () => {
         this.getSensorData();
-      this.setState({isLoggedIn:true});
+        this.setState({isLoggedIn:true});
+        this.getLightState();
     }
+
     getSensorData = () => {
         API.getSensorData()
         .then(response => {
@@ -32,6 +37,27 @@ class Landing extends Component {
         })
     }
 
+    getLightState = () => {
+        API.getLightState()
+        .then(response => {
+            this.setState({
+                lightState: response.data
+            })
+        })
+        .catch(err => {
+            console.log(`There was an error getting the light state: ${err}`);
+        })
+    }
+
+    handleLightClick = () => {
+        API.toggleLight()
+        .then((response) => {
+            console.log(`After toggleLight, before get light state: ${this.state.lightState}`);
+            this.getLightState();
+            console.log(`After get light state: ${this.state.lightState}`);
+        })
+    }
+
     render() {
         const isLoggedIn = this.state.isLoggedIn
         return (
@@ -44,7 +70,11 @@ class Landing extends Component {
                         <PlantStream/>
                         <br />
                         <WaterBtn>Water Me</WaterBtn>
-                        <LightBtn>Light Me</LightBtn>
+                        {
+                            this.state.lightState === 'off' ? 
+                            <LightOnBtn onClick={this.handleLightClick} >Turn Light On</LightOnBtn> : 
+                            <LightOffBtn onClick={this.handleLightClick} >Turn Off Light</LightOffBtn>
+                        }
                     </div >
                     <div className="auth-inner col col-sm-3" id="ContainerRight">
 
