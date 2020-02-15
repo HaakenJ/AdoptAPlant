@@ -16,5 +16,9 @@ export default {
           'Content-Type': 'application/json',
       }
     });
+  },
+  // Get sensor data from Firebase
+  getSensorData: function() {
+    return axios.get("/data")
   }
 };

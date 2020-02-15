@@ -1,5 +1,8 @@
 # Still to do
 
+* Let group members know about issue with heroku load times.  Set up 
+web monitoring service that will ping sites at regular intervals.
+
 * Get rid of cron job for water pump.  Water pump is now used by listening
 for changes to firebase.
 
@@ -14,3 +17,5 @@ is no longer functional.
 
 
 # Change login and sign up on nav to My Account when user is logged in
+
+Stream isn't loading on heroku even when it is live

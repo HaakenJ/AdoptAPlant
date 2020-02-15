@@ -27,7 +27,7 @@ function readSoilMoisture() {
         byteLength: 3,
         // Using a lower bus speed (in MHz) to get a better reading.
         // TODO: Will adjust this to see what gets most accurate values
-        speedHz: 20000
+        speedHz: 50000
       }];
 
       if (err) reject(err);
@@ -61,6 +61,7 @@ function readSoilMoisture() {
         const percentDry = (adjValue / range) * 100;
         const moistureContent = Math.round(100 - percentDry);
 
+        console.log(rawValue);
         resolve(moistureContent);
       })
     })
