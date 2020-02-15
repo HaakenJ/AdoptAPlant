@@ -17,6 +17,20 @@ export default {
       }
     });
   },
+  updateEmail: function(userData) {
+    return axios.post('/myaccount', userData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  },
+  updatePassword: function (userData) {
+    return axios.post('/myaccount', userData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  },
   // Get sensor data from Firebase
   getSensorData: function() {
     return axios.get('/data')
