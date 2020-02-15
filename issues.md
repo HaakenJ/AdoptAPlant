@@ -17,3 +17,5 @@ is no longer functional.
 
 
 # Change login and sign up on nav to My Account when user is logged in
+
+Stream isn't loading on heroku even when it is live
