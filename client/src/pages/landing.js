@@ -58,6 +58,13 @@ class Landing extends Component {
         })
     }
 
+    handleWaterButton = () => {
+        API.waterPlant()
+        
+    }
+
+    
+
     render() {
         const isLoggedIn = this.state.isLoggedIn
         return (
@@ -68,12 +75,16 @@ class Landing extends Component {
                     <div className="auth-inner col col-sm-8" >
                         <PlantStream/>
                         <br />
-                        <WaterBtn>Water Me</WaterBtn>
+                        
+                        <WaterBtn onClick={this.handleWaterButton} >Water Me</WaterBtn>
                         {
                             this.state.lightState === "off" ? 
                             <LightOnBtn onClick={this.handleLightClick} >Turn Light On</LightOnBtn> : 
                             <LightOffBtn onClick={this.handleLightClick} >Turn Off Light</LightOffBtn>
+                            
                         }
+                        
+
                     </div >
                     <div className="auth-inner col col-sm-3" id="ContainerRight">
                         <div className="data-item">
@@ -96,4 +107,5 @@ class Landing extends Component {
 }
 
 export default Landing;
+
 
