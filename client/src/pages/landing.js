@@ -15,14 +15,25 @@ class Landing extends Component {
         return (
             <div className="auth-wrapper">
                 <div className="row" style={{margin: "0"}}>
-                    <div className="auth-inner col col-sm-3"></div>
+                    <div className="auth-inner col col-sm-3" id="ContainerLeft"></div>
                     <div className="auth-inner col col-sm-5" >
                         <PlantStream/>
                         <br />
                         <WaterBtn>Water Me</WaterBtn>
                         <LightBtn>Light Me</LightBtn>
                     </div >
-                    <div className="auth-inner col col-sm-3"></div>
+                    <div className="auth-inner col col-sm-3" id="ContainerRight">
+                        
+
+
+
+
+
+
+
+
+
+                    </div>
                 </div>
             </div >
         );
