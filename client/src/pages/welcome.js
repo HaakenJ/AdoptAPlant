@@ -16,16 +16,18 @@ class Welcome extends Component {
         return (
             <div className="auth-wrapper">
                 <Nav isLoggedIn={isLoggedIn} />
-                <div className="auth-inner" style={{ margin: "auto", width: "457px" }}>
+                <div className="auth-inner login-box">
                     <div className='Welcomebox'>
                         <img src={logo} alt="plogo" className="logo" />
                         <br />
-                        <h3>Welcome to Adopt-A-Plant</h3>
-                        <p>Bringing the garden to you, one plant at a time</p>
+                        <h3 className="title-text">Welcome to Adopt-A-Plant</h3>
+                        <p className="title-subtext">Bringing the garden to you, one plant at a time</p>
                         <br />
 
-                        <a href="/log-in"><SubmitBtn>Log In</SubmitBtn></a>
-                        <a href="/sign-up"><SubmitBtn>Sign Up</SubmitBtn></a>
+                        <div className="welcome-btn-container">
+                            <a href="/log-in"><SubmitBtn className="welcome-btn">Log In</SubmitBtn></a>
+                            <a href="/sign-up"><SubmitBtn className="welcome-btn">Sign Up</SubmitBtn></a>
+                        </div>
                     </div>
                 </div>
             </div>
