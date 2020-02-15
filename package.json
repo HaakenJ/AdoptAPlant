@@ -45,7 +45,7 @@
     "spi-device": "^3.0.0"
   },
   "optionalDependencies": {
-    "cron-time-generator": "^1.0.0"
+    "cron-time-generator": "^1.0.0",
     "node-dht-sensor": "^0.4.1",
     "onoff": "^5.0.1"
   }
