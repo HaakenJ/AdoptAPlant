@@ -15,7 +15,7 @@ const ref = db.ref("commands/");
 
 // Check database to see if the command to run the 
 // pump is set to true.
-// If so, run the pump for 4 seconds and set the 
+// If so, run the pump for 2 seconds and set the 
 // command back to false.
 
 console.log("Script is now listening for changes to firebase");
@@ -33,7 +33,7 @@ ref.on("value", snap => {
                         .catch(err => {
                             console.log(`There was an error writing to the database: ${err}`)
                         })
-                }, 4000);
+                }, 1000);
             })
             .catch(err => {
                 console.log(`Error with water pump: ${err}`);
