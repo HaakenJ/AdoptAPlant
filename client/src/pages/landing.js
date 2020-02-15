@@ -39,14 +39,14 @@ class Landing extends Component {
             <div className="auth-wrapper">
                 <Nav isLoggedIn={isLoggedIn} />
                 <div className="row" style={{margin: "0"}}>
-                    <div className="auth-inner col col-sm-3" id="ContainerLeft"></div>
-                    <div className="auth-inner col col-sm-5" >
+                    <div className="auth-inner col-md-3" id="ContainerLeft"></div>
+                    <div className="auth-inner col-md-5" >
                         <PlantStream/>
                         <br />
                         <WaterBtn>Water Me</WaterBtn>
                         <LightBtn>Light Me</LightBtn>
                     </div >
-                    <div className="auth-inner col col-sm-3" id="ContainerRight">
+                    <div className="auth-inner col-md-3" id="ContainerRight">
 
                      <h1 className='mt-10' >Humidity: {this.state.humidity}%</h1>
                      <h1 className='mt-10' >Soil Water Content: {this.state.soilMoisture}%</h1>

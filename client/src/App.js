@@ -6,6 +6,8 @@ import UserLogin from './pages/login.js'
 import SignUp from "./pages/signup.js";
 import Welcome from './pages/welcome.js';
 import Landing from './pages/landing';
+import NotFound from './pages/notFound.js'
+import MyAccount from './pages/myAccount.js'
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route exact path="/log-in" component={UserLogin} />
           <Route exact path="/sign-up" component={SignUp} />
           <Route exact path="/landing" component={Landing} />
+          <Route exact path="/myaccount" component={MyAccount} />
+          <Route component={NotFound} />
         </Switch>
       </div>
     </Router>
