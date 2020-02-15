@@ -27,7 +27,7 @@ function readSoilMoisture() {
         byteLength: 3,
         // Using a lower bus speed (in MHz) to get a better reading.
         // TODO: Will adjust this to see what gets most accurate values
-        speedHz: 20000
+        speedHz: 50000
       }];
 
       if (err) reject(err);
@@ -54,15 +54,15 @@ function readSoilMoisture() {
           message[0].receiveBuffer[2];
 
         // Sensor reads 280 when completely wet, 575 is completely dry.
-        //const dry = 600;
-        //const wet = 270;
-        //const range = dry - wet;
-        //const adjValue = rawValue - wet;
-        //const percentDry = (adjValue / range) * 100;
-        //const moistureContent = Math.round(100 - percentDry);
+        const dry = 600;
+        const wet = 270;
+        const range = dry - wet;
+        const adjValue = rawValue - wet;
+        const percentDry = (adjValue / range) * 100;
+        const moistureContent = Math.round(100 - percentDry);
 
         console.log(rawValue);
-        resolve(rawValue);
+        resolve(moistureContent);
       })
     })
   })
