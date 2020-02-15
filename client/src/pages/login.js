@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import API from '../utils/API';
 import SubmitBtn from '../components/Buttons/SubmitBtn'
+import Nav from '../components/Nav'
 
 class UserLogin extends Component {
 
@@ -10,7 +11,8 @@ class UserLogin extends Component {
         this.state = {
             username: '',
             password: '',
-            redirectTo: false
+            redirectTo: false,
+            isLoggedIn: false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -41,10 +43,14 @@ class UserLogin extends Component {
             console.log(error);
         });
     }
+    
 
     render() {
+        const isLoggedIn = this.state.isLoggedIn;
         return (
+            
             <div className="auth-wrapper">
+                <Nav />
                 <div className="auth-inner" style={{margin: "auto", width: "457px"}}>
                     <form>
                         <h3>Login</h3>
