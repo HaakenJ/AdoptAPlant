@@ -112,3 +112,38 @@ body, html, .App, #root, .auth-wrapper {
   background-color: rgba(255, 255, 255, 0.507);
   margin-bottom: 25px;
 }
+
+.login-box {
+  margin: auto;
+  width: 457px;
+}
+
+@media only screen and (max-width: 767px) {
+  .auth-inner {
+    width: 80%;
+    max-height: 75%;
+  }
+
+  .logo {
+    width: 123px;
+    height: auto;
+  }
+
+  .title-text {
+    font-size: 1.2rem;
+  }
+
+  .title-subtext {
+    font-size: 0.9rem;
+  }
+
+  .btn.welcome-btn {
+    width: 85%;
+    margin-bottom: 10px;
+  }
+
+  .welcome-btn-container {
+    position: relative;
+    top: -20px;
+  }
+}
