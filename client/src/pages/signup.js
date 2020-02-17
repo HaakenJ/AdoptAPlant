@@ -53,9 +53,7 @@ class Signup extends Component {
             
             <div className="auth-wrapper">
                 <Nav isLoggedIn={isLoggedIn} />
-                <div className="auth-inner" style={{
-                    margin: "auto", width: "457px"
-                }}>
+                <div className="auth-inner login-box">
                     <form>
                         <h3>Create User</h3>
 

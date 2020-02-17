@@ -14,7 +14,7 @@ class NotFound extends Component {
         return (
             <div className="auth-wrapper">
                 <Nav isLoggedIn={isLoggedIn} />
-                <div className="auth-inner" style={{ margin: "auto", width: "457px" }}>
+                <div className="auth-inner login-box">
                     <h1>404 Page Not Found</h1>
                     <h1>
                         <span role="img" aria-label="Face With Rolling Eyes Emoji">

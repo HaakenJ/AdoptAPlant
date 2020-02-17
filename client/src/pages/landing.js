@@ -70,8 +70,8 @@ class Landing extends Component {
         return (
             
             <div className="auth-wrapper">
-                <Nav isLoggedIn={isLoggedIn} />
-                <div className="row" style={{margin: "0"}}>
+                <Nav isLoggedIn={isLoggedIn} landingStyle="fixed-top"/>
+                <div className="row landing-container">
                     <div className="auth-inner col col-sm-8" >
                         <PlantStream/>
                         <br />
@@ -86,7 +86,7 @@ class Landing extends Component {
                         
 
                     </div >
-                    <div className="auth-inner col col-sm-3" id="ContainerRight">
+                    <div className="auth-inner temp-container col col-sm-3" id="ContainerRight">
                         <div className="data-item">
                             <div>Humidity: </div>
                             <div>{this.state.humidity}%</div>
