@@ -62,7 +62,7 @@ class MyAccount extends Component {
 
             <div className="auth-wrapper">
                 <Nav isLoggedIn={isLoggedIn} />
-                <div className="auth-inner" style={{ margin: "auto", width: "457px" }}>
+                <div className="auth-inner login-box">
                     <h3>Update My Info</h3>
                     <form>
                         

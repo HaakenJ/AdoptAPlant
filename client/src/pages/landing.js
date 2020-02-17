@@ -25,7 +25,6 @@ class Landing extends Component {
     getSensorData = () => {
         API.getSensorData()
         .then(response => {
-            console.log(response.data);
             this.setState({
                 humidity: response.data.humidity,
                 temp: response.data.temp,
@@ -52,9 +51,7 @@ class Landing extends Component {
     handleLightClick = () => {
         API.toggleLight()
         .then((response) => {
-            console.log(`After toggleLight, before get light state: ${this.state.lightState}`);
             this.getLightState();
-            console.log(`After get light state: ${this.state.lightState}`);
         })
     }
 
@@ -70,8 +67,8 @@ class Landing extends Component {
         return (
             
             <div className="auth-wrapper">
-                <Nav isLoggedIn={isLoggedIn} />
-                <div className="row" style={{margin: "0"}}>
+                <Nav isLoggedIn={isLoggedIn} landingStyle="fixed-top"/>
+                <div className="row landing-container">
                     <div className="auth-inner col col-sm-8" >
                         <PlantStream/>
                         <br />
@@ -86,7 +83,7 @@ class Landing extends Component {
                         
 
                     </div >
-                    <div className="auth-inner col col-sm-3" id="ContainerRight">
+                    <div className="auth-inner temp-container col col-sm-3" id="ContainerRight">
                         <div className="data-item">
                             <div>Humidity: </div>
                             <div>{this.state.humidity}%</div>
