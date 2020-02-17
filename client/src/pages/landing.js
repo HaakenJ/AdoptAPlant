@@ -25,7 +25,6 @@ class Landing extends Component {
     getSensorData = () => {
         API.getSensorData()
         .then(response => {
-            console.log(response.data);
             this.setState({
                 humidity: response.data.humidity,
                 temp: response.data.temp,
@@ -52,9 +51,7 @@ class Landing extends Component {
     handleLightClick = () => {
         API.toggleLight()
         .then((response) => {
-            console.log(`After toggleLight, before get light state: ${this.state.lightState}`);
             this.getLightState();
-            console.log(`After get light state: ${this.state.lightState}`);
         })
     }
 
