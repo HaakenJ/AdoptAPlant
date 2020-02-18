@@ -9,6 +9,13 @@ body {
   display: flex;
   font-weight: 400;
   font-family: 'Fira Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+@media only screen and (min-width: 1025px) {
+  body {
+    overflow: hidden;
+  }
 }
 
 h1,h2,h3,h4,h5,h6,label,span {
@@ -16,9 +23,24 @@ h1,h2,h3,h4,h5,h6,label,span {
   font-family: 'Fira Sans', sans-serif;
 }
 
+row {
+  margin: 0;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
 body, html, .App, #root, .auth-wrapper {
   width: 100%;
-  height: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  body, html, .App, #root, .auth-wrapper {
+    height: 100%;
+  }
 }
 
 .auth-wrapper {
@@ -37,6 +59,11 @@ body, html, .App, #root, .auth-wrapper {
   padding: 40px 55px 45px 55px;
   border-radius: 15px;
   transition: all .3s;
+  max-height: 500px;
+}
+
+#plant-stream {
+  max-width: 520px;
 }
 
 .auth-wrapper .form-control:focus {
@@ -81,7 +108,14 @@ body, html, .App, #root, .auth-wrapper {
 .auth-wrapper .btn-primary {
   width: 40%;
   padding: 5px;
-  margin-left: 5px;
+  margin-left: 10px;
+  max-width: 220px;
+}
+
+.data-item {
+  font-size: 2rem;
+  margin-bottom: 35px;
+  font-weight: 500;
 }
 
 .logo {
@@ -92,4 +126,69 @@ body, html, .App, #root, .auth-wrapper {
   border-color: white;
   background-color: rgba(255, 255, 255, 0.507);
   margin-bottom: 25px;
+}
+
+.login-box {
+  margin: auto;
+  width: 457px;
+}
+
+@media only screen and (max-width: 767px) {
+
+  .navbar-expand .navbar-nav .nav-link {
+    padding-right: 0;
+  }
+
+  .App,
+  .auth-wrapper {
+    height: 100%;
+  }
+
+  .auth-inner {
+    width: 80%;
+    max-height: 75%;
+  }
+
+  .login-box {
+    margin-top: 110px;
+  }
+
+  .logo {
+    width: 123px;
+    height: auto;
+  }
+
+  .title-text {
+    font-size: 1.2rem;
+  }
+
+  .title-subtext {
+    font-size: 0.9rem;
+  }
+
+  .btn.welcome-btn {
+    width: 85%;
+    margin-bottom: 10px;
+  }
+
+  .welcome-btn-container {
+    position: relative;
+    top: -20px;
+  }
+
+  .row.landing-container {
+    margin-top: 90px;
+  }
+
+  .row {
+    margin: 0;
+  }
+
+  .temp-container {
+    margin-top: 35px;
+  }
+
+  .col {
+    flex-basis: auto;
+  }
 }
