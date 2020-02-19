@@ -200,7 +200,7 @@ body, html, .App, #root, .auth-wrapper {
   }
 
   .row {
-    margin: 0;
+    margin: 0 10px;
   }
 
   .temp-container {
@@ -215,11 +215,10 @@ body, html, .App, #root, .auth-wrapper {
 
   .sensor-data {
     display: flex;
+    justify-content: space-between;
   }
 
   .data-item {
-    margin-right: 15px;
-    margin-left: 15px;
     font-size: 1rem;
   }
 
