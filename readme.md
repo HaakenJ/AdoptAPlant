@@ -2,7 +2,7 @@
 
 AdoptAPlant is a web-based service that allows users to adopt plants for a monthly subscription. Users then being able to watch the plants via live streaming video, monitor environmental conditions, and toggle the lights or water the plant via the press of a button.
 
-(Live Site)[https://adoptaplant.herokuapp.com]
+[Live Site](https://adoptaplant.herokuapp.com)
 
 ## Getting Started
 
