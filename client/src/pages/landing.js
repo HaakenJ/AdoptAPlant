@@ -23,7 +23,6 @@ class Landing extends Component {
     }
 
     getSensorData = () => {
-        console.log("Line 26");
         API.getSensorData()
         .then(response => {
             console.log(response.data);
