@@ -59,11 +59,12 @@ body, html, .App, #root, .auth-wrapper {
   padding: 40px 55px 45px 55px;
   border-radius: 15px;
   transition: all .3s;
-  max-height: 500px;
+  max-height: 600px;
 }
 
 #plant-stream {
   max-width: 520px;
+  margin-top: -22px;
 }
 
 .auth-wrapper .form-control:focus {
@@ -110,6 +111,8 @@ body, html, .App, #root, .auth-wrapper {
   padding: 5px;
   margin-left: 10px;
   max-width: 220px;
+  margin-top: -10px;
+  
 }
 
 .data-item {
@@ -185,7 +188,9 @@ body, html, .App, #root, .auth-wrapper {
   }
 
   .temp-container {
-    margin-top: 35px;
+    margin-top: 50px;
+    max-height: 600px;
+    
   }
 
   .col {
