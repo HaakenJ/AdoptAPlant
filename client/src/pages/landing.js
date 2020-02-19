@@ -23,8 +23,10 @@ class Landing extends Component {
     }
 
     getSensorData = () => {
+        console.log("Line 26");
         API.getSensorData()
         .then(response => {
+            console.log(response.data);
             this.setState({
                 humidity: response.data.humidity,
                 temp: response.data.temp,
@@ -69,18 +71,18 @@ class Landing extends Component {
             <div className="auth-wrapper">
                 <Nav isLoggedIn={isLoggedIn} landingStyle="fixed-top"/>
                 <div className="row landing-container">
-                    <div className="auth-inner col col-sm-8" >
+                    <div className="auth-inner col col-sm-8 stream-container" >
                         
-                        <div class="container-fluid" id="most-inner">
-                             <div class="row">
+                        <div className="container-fluid" id="most-inner">
+                             <div className="row">
 
-                             <div className="miro col col-sm-3">
+                             <div className="sensor-data micro col col-sm-3">
                                       <div className="data-item">
                                          <div>Humidity: </div>
                                          <div>{this.state.humidity}%</div>
                                       </div>
                                       <div className="data-item">
-                                         <div>Soil Water Content: </div>
+                                         <div>Moisture Level: </div>
                                          <div>{this.state.soilMoisture}%</div>
                                       </div>
                                       <div className="data-item">
@@ -110,16 +112,15 @@ class Landing extends Component {
 
                     </div >
                     <div className="auth-inner temp-container col col-sm-3" id="ContainerRight">
-                        <div className="Plant Information">
+                        {/* <div className="plant-information"> */}
                             <br></br>
-                            <h3>Plant Name: Welsh Onion</h3>
-                            <h3>Scientific Name: Allium Fistulosum</h3>
-                            <h3>Optimum Temperature: 68-77 Degrees F</h3>
-                            <h3>Time from Seed to Produce: 40-50 Days.</h3>
-                            <h3>Recommended Soil Depth: 1/2 inches. </h3> 
+                            <p className="plant-info"><strong>Plant Name:</strong> Welsh Onion</p>
+                            <p className="plant-info"><strong>Scientific Name:</strong> Allium Fistulosum</p>
+                            <p className="plant-info"><strong>Optimum Temperature:</strong> 68-77 Degrees F</p>
+                            <p className="plant-info"><strong>Time from Seed to Produce:</strong> 40-50 Days.</p>
                             <br></br>                         
                             
-                        </div>
+                        {/* </div> */}
                             
                     </div>
                 </div>
