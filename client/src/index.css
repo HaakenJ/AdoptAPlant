@@ -12,18 +12,14 @@ body {
   overflow-x: hidden;
 }
 
-@media only screen and (min-width: 1025px) {
-  body {
-    overflow: hidden;
-  }
-}
+
 
 h1,h2,h3,h4,h5,h6,label,span {
   font-weight: 500;
   font-family: 'Fira Sans', sans-serif;
 }
 
-row {
+.row {
   margin: 0;
 }
 
@@ -56,7 +52,7 @@ body, html, .App, #root, .auth-wrapper {
   margin: auto;
   background: #ffffff6b;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-  padding: 40px 55px 45px 55px;
+  padding: 40px 30px 45px 30px;
   border-radius: 15px;
   transition: all .3s;
   max-height: 600px;
@@ -136,6 +132,25 @@ body, html, .App, #root, .auth-wrapper {
   width: 457px;
 }
 
+.plant-info {
+  font-size: 1.2rem;
+}
+
+.temp-container {
+  background-color: #eaf2e7;
+  opacity: .9;
+}
+
+@media only screen and (min-width: 1024px) {
+  body {
+    overflow: hidden;
+  }
+
+  .plant-info {
+    font-size: 1.7rem;
+  }
+}
+
 @media only screen and (max-width: 767px) {
 
   .navbar-expand .navbar-nav .nav-link {
@@ -150,6 +165,7 @@ body, html, .App, #root, .auth-wrapper {
   .auth-inner {
     width: 80%;
     max-height: 75%;
+    padding: 40px 20px 70px;
   }
 
   .login-box {
@@ -195,5 +211,34 @@ body, html, .App, #root, .auth-wrapper {
 
   .col {
     flex-basis: auto;
+  }
+
+  .sensor-data {
+    display: flex;
+  }
+
+  .data-item {
+    margin-right: 15px;
+    margin-left: 15px;
+    font-size: 1rem;
+  }
+
+  div.stream-container {
+    padding: 40px 4px 70px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .auth-inner {
+    padding: 40px 10px 45px 10px;
+  }
+
+  .data-item {
+    font-size: 1.5rem;
+  }
+
+  .row {
+    margin-right: 0;
+    margin-left: 0;
   }
 }
