@@ -3,10 +3,7 @@ let LocalStrategy = require('passport-local').Strategy;
 let db = require('../models');
 
 // Use local strategy for authentication
-passport.use('local', new LocalStrategy({
-        usernameField: 'email',
-        passwordField: 'password'
-    },
+passport.use('local', new LocalStrategy(
     function (username, password, done) {
         console.log("Finding a user");
         db.User.findOne({ username: username })

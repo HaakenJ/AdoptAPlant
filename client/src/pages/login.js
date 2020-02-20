@@ -33,7 +33,7 @@ class UserLogin extends Component {
     handleSubmit(event) {
         event.preventDefault();
         API.loginUser({
-            email: this.state.username,
+            username: this.state.username,
             password: this.state.password
         }).then((dbUser) => {
             if (dbUser) {
