@@ -1,9 +1,19 @@
 import React from "react";
 import "./style.css"
 import logo from "../../images/CBP-Logo-Web.png"
+import API from "../../utils/API";
+
+const handleLogOutClick = () => {
+  API.logOutUser()
+  .then(() => {
+      localStorage.removeItem("username");
+  })
+  .catch(err => {
+      console.log(`There was an error logging out: ${err}`);
+  })
+}
 
 function Nav(props) {
-
   return (
     <nav className="navbar navbar-expand-sm navbar-light fixed-top">
       <div className="container">
@@ -13,7 +23,12 @@ function Nav(props) {
           {props.isLoggedIn ? (
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a className="nav-link" href="/myaccount">My Account</a>
+                <a className="nav-link" href="/myaccount">{localStorage.getItem("username") ? 
+                `${localStorage.getItem("username")}'s`: 
+                "My"} Account</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/" onClick={handleLogOutClick}>Log Out</a>
               </li>
             </ul>
           ) : (

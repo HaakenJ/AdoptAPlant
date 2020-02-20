@@ -37,6 +37,7 @@ class UserLogin extends Component {
             password: this.state.password
         }).then((dbUser) => {
             if (dbUser) {
+                localStorage.setItem("username", dbUser.data.username);
                 this.props.history.push('/landing');
             } else {
                 alert("Username/ Password incorrect")

@@ -17,6 +17,9 @@ export default {
       }
     });
   },
+  logOutUser: function() {
+    return axios.post('/logout');
+  },
   updateEmail: function(userData) {
     return axios.post('/myaccount', userData, {
       headers: {
