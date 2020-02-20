@@ -25,7 +25,6 @@ class Landing extends Component {
     getSensorData = () => {
         API.getSensorData()
         .then(response => {
-            console.log(response.data);
             this.setState({
                 humidity: response.data.humidity,
                 temp: response.data.temp,
@@ -51,7 +50,7 @@ class Landing extends Component {
 
     handleLightClick = () => {
         API.toggleLight()
-        .then((response) => {
+        .then(response => {
             this.getLightState();
         })
     }
@@ -61,14 +60,12 @@ class Landing extends Component {
         
     }
 
-    
-
     render() {
         const isLoggedIn = this.state.isLoggedIn
         return (
             
             <div className="auth-wrapper">
-                <Nav isLoggedIn={isLoggedIn} landingStyle="fixed-top"/>
+                <Nav isLoggedIn={isLoggedIn} landingStyle="fixed-top" onLogOut={this.handleLogOutClick} />
                 <div className="row landing-container">
                     <div className="auth-inner col col-sm-8 stream-container" >
                         
