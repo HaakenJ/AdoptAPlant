@@ -32,10 +32,10 @@ class UserLogin extends Component {
     // Login handler. Sends username and password to /log-in route. On success redirects to /landing. 
     handleSubmit(event) {
         event.preventDefault();
-        API.loginUser(JSON.stringify({
+        API.loginUser({
             email: this.state.username,
             password: this.state.password
-        })).then((dbUser) => {
+        }).then((dbUser) => {
             if (dbUser) {
                 this.props.history.push('/landing');
             } else {
