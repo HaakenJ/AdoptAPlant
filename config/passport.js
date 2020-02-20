@@ -5,6 +5,7 @@ let db = require('../models');
 // Use local strategy for authentication
 passport.use('local', new LocalStrategy(
     function (username, password, done) {
+        console.log("Finding a user");
         db.User.findOne({ username: username })
             .then(function (dbUser) {
                 if (!dbUser && !dbUser.validPassword(password)) {
