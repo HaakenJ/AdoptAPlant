@@ -46,5 +46,8 @@ export default {
   },
   getLightState: function() {
     return axios.get('/light');
+  },
+  setTime: function(time) {
+    return axios.post('/set-time', time);
   }
 };
