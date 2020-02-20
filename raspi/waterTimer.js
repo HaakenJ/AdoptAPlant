@@ -32,7 +32,9 @@ firebase.initializeApp({
 
 const db = firebase.app().database();
 
-const ref = db.ref("commands/waterTime");
+const ref = db.ref("commands/time");
+
+
 
 // Establish a new cron job that will run the water pump for 4 seconds.
 // the time is set at default of every second but will be changed when a 
@@ -68,10 +70,8 @@ ref.on("value", snap => {
     if (!snap.val().waterTime) {
         waterJob.stop();
     } else {
-        // TODO create function to convert time to cron syntax.
-        // Store new cron time in schedule variable.
-        const schedule = '0 0 0 0 0 0';
-        waterJob.setTime(schedule);
+        const newCronTime = cronTime.everyDayAt(snap.time);
+        waterJob.setTime(newCronTime);
         waterJob.start();
     }
 })

@@ -10,8 +10,8 @@ const db = firebase.app().database();
 
 const ref = db.ref("commands/");
 
-router.post("/water", (req, res) => {
-  ref.set({ water: true })
+router.post("/set-time", (req, res) => {
+  ref.set({ time: req.body.time })
   .then(() => {
       res.status(200).end();
   })
