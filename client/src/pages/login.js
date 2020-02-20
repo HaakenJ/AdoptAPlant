@@ -44,6 +44,7 @@ class UserLogin extends Component {
             }
         }).catch((error) => {
             console.log(error);
+            alert("Username/ Password incorrect")
         });
     }
     
