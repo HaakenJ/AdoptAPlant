@@ -116,7 +116,7 @@ class Landing extends Component {
                             <p className="plant-info"><strong>Plant Name:</strong> Welsh Onion</p>
                             <p className="plant-info"><strong>Scientific Name:</strong> Allium Fistulosum</p>
                             <p className="plant-info"><strong>Optimum Temperature:</strong> 68-77 Degrees F</p>
-                            <p className="plant-info"><strong>Time from Seed to Produce:</strong> 40-50 Days.</p>
+                            <p className="plant-info"><strong>Time from Seed to Harvest:</strong> 40-50 Days.</p>
                             <br></br>                         
                             
                         {/* </div> */}
