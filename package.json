@@ -28,7 +28,7 @@
     "bcrypt": "^3.0.8",
     "concurrently": "^5.1.0",
     "connect-mongo": "^3.2.0",
-    "csv-parser": "^2.3.2",
+    "cron": "^1.8.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
@@ -39,8 +39,12 @@
     "nodemon": "^2.0.2",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "path": "^0.12.7",
-    "sequelize": "^5.21.3",
+    "path": "^0.12.7"
+  },
+  "optionalDependencies": {
+    "cron-time-generator": "^1.0.0",
+    "node-dht-sensor": "^0.4.1",
+    "onoff": "^5.0.1",
     "spi-device": "^3.0.0"
   }
 }

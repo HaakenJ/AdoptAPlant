@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import API from '../utils/API';
 import SubmitBtn from '../components/Buttons/SubmitBtn'
+import Nav from '../components/Nav'
 
 class UserLogin extends Component {
 
@@ -10,7 +11,8 @@ class UserLogin extends Component {
         this.state = {
             username: '',
             password: '',
-            redirectTo: false
+            redirectTo: false,
+            isLoggedIn: false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -31,21 +33,27 @@ class UserLogin extends Component {
     handleSubmit(event) {
         event.preventDefault();
         API.loginUser(JSON.stringify({
-            username: this.state.username,
+            email: this.state.username,
             password: this.state.password
         })).then((dbUser) => {
             if (dbUser) {
                 this.props.history.push('/landing');
+            } else {
+                alert("Username/ Password incorrect")
             }
         }).catch((error) => {
             console.log(error);
         });
     }
+    
 
     render() {
+        const isLoggedIn = this.state.isLoggedIn;
         return (
+            
             <div className="auth-wrapper">
-                <div className="auth-inner" style={{margin: "auto", width: "457px"}}>
+                <Nav isLoggedIn={isLoggedIn} />
+                <div className="auth-inner login-box">
                     <form>
                         <h3>Login</h3>
 
@@ -67,10 +75,7 @@ class UserLogin extends Component {
                             />
                         </div>
 
-
-                        <button type="button" className="btn btn-primary btn-block" onClick={this.handleSubmit}>Submit</button>
-
-                        <SubmitBtn>Log In</SubmitBtn>
+                        <SubmitBtn onClick={this.handleSubmit}>Log In</SubmitBtn>
 
 
                     </form>
