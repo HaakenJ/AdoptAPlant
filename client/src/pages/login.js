@@ -79,7 +79,7 @@ class UserLogin extends Component {
                         </div>
 
                         <SubmitBtn onClick={this.handleSubmit}>Log In</SubmitBtn>
-
+                        <SubmitBtn onClick={this.handleFacebookLogin}>Log in with Facebook</SubmitBtn>
                     </form>
                 </div>
             </div>

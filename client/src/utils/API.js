@@ -18,10 +18,12 @@ export default {
     });
   },
   // Sends a post request to /log-in route in routes/log-in
-  loginFacebook: function(userData) {
-    return axios.get("/facebook", userData, {
+  loginFacebook: function() {
+    return axios.get("/facebook", {
       headers: {
           'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,OPTIONS'
       }
     });
   }

@@ -1,18 +1,19 @@
 const express = require("express");
-let passport = require('passport');
-let session = require('express-session');
+const passport = require('passport');
+const session = require('express-session');
 const mongoose = require("mongoose");
 const MongoStore = require('connect-mongo')(session)
 const routes = require("./routes");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const cors = require('cors');
+
 
 // Middleware Definitions
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // PassportJS
-
 require('./config/passport');
 
 app.use(passport.initialize());
@@ -36,6 +37,13 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Routing
+
+// // Adding CORS to all routing.
+// app.use(cors({
+//   origin: 'http://localhost:3000/'
+// }));
+// app.options('http://localhost:3000/', cors());
+
 app.use(routes);
 
 

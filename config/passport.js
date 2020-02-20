@@ -1,5 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
 const db = require('../models');
 require('dotenv').config();
 
@@ -23,13 +24,22 @@ passport.use('local', new LocalStrategy(
 // Facebook Strategy
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_CLIENT_ID,
-    clientSecret: FACEBOOK_CLIENT_SECRET,
-    callbackURL: "/facebook/callback"
+    clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL: "/facebook/callback",
   },
   function(accessToken, refreshToken, profile, done) {
-    User.findOrCreate({name: profile.displayName}, {name: profile.displayName,userid: profile.id}, function(err, user) {
-      if (err) { return done(err); }
-      done(null, user);
+      console.log(profile)
+
+    db.FacebookUser.findOne({userId: profile.id}, function(err, user) {
+        if (err) {
+            console.log(err)
+            return db.FacebookUser.create({name: profile.displayName, provider: profile.provider, userId: profile.id}, 
+                function(err, user) {
+                    if (err) { return done(err); }
+                        return done(null, user);
+                });
+        }
+        return done(null, user);
     });
   }
 ));
