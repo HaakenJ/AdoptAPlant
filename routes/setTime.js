@@ -12,8 +12,9 @@ const ref = db.ref("commands/");
 
 router.post("/set-time", (req, res) => {
   console.log(req.body.time);
-  ref.set({ time: req.body.time })
-  .then(() => {
+  ref.update({ time: req.body.time })
+  .then(response => {
+      console.log("Request received.");
       res.status(200).end();
   })
   .catch(err => {

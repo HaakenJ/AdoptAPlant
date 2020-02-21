@@ -11,7 +11,7 @@ const db = firebase.app().database();
 const ref = db.ref("commands/");
 
 router.post("/water", (req, res) => {
-  ref.set({ water: true })
+  ref.update({ water: true })
   .then(() => {
       res.status(200).end();
   })

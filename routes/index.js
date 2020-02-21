@@ -6,6 +6,7 @@ const loginRoute = require("./login");
 const lightRoute = require("./light");
 const dataRoute = require("./sensorData");
 const waterRoute = require("./water");
+const timerRoute = require("./setTime");
 
 // API Routes
 // router.use("/api", apiRoutes);
@@ -16,6 +17,7 @@ router.use(loginRoute);
 router.use(lightRoute);
 router.use(dataRoute);
 router.use(waterRoute);
+router.use(timerRoute);
 
 // If no API routes are hit, send the React app
 router.use(function(req, res) {
