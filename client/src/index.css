@@ -133,12 +133,13 @@ body, html, .App, #root, .auth-wrapper {
 }
 
 .plant-info {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
-.temp-container {
+div.side-container {
   background-color: #eaf2e7;
   opacity: .9;
+  padding: 20px;
 }
 
 .timer-header {
@@ -152,7 +153,7 @@ body, html, .App, #root, .auth-wrapper {
   }
 
   .plant-info {
-    font-size: 1.7rem;
+    font-size: 1rem;
   }
 }
 
@@ -208,10 +209,10 @@ body, html, .App, #root, .auth-wrapper {
     margin: 0 10px;
   }
 
-  .temp-container {
+  div.side-container {
     margin-top: 50px;
     max-height: 600px;
-    
+    padding: 20px;
   }
 
   .col {
