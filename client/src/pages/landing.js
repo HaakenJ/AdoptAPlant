@@ -60,13 +60,6 @@ class Landing extends Component {
         API.waterPlant()
     }
 
-    handleDropdownClick = (val) => {
-        API.setTime({ time: val })
-        .then(response => {
-            console.log(response);
-        })
-    }
-
     render() {
         const isLoggedIn = this.state.isLoggedIn
         return (
@@ -120,7 +113,7 @@ class Landing extends Component {
                             <p className="plant-info"><strong>Optimum Temperature:</strong> 68-77 Degrees F</p>
                             <p className="plant-info"><strong>Time from Seed to Harvest:</strong> 40-50 Days.</p>
                             <br></br>      
-                            <Dropdown onClick={(e) => this.handleDropdownClick(e.target.value)} />                           
+                            <Dropdown />                           
                     </div>
                 </div>
             </div >
