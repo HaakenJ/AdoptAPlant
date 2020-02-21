@@ -68,13 +68,12 @@ class TimerSideBar extends Component {
                     this.state.isJobRunning ?
                         <div className="mb-3">
                             <button type="button" className="btn btn-dark mb-3" onClick={this.stopJob} >Cancel Schedule</button>
-                            <p className="timer-header">Watering Time: </p>
-                            <p>{this.state.time}:00</p>
+                            <p className="timer-header">Water every day at: {this.state.time}:00</p>
                         </div> 
                         :
                         <div className="mb-3">
                             <button type="button" className="btn btn-light mb-3" onClick={this.startJob} >Start Schedule</button>
-                            <p className="timer-header">Watering Time: {this.state.time}:00</p>
+                            <p className="timer-header">Water every day at: {this.state.time}:00</p>
                             <p>Water schedule is not currently running</p>
                         </div>
                 }
@@ -85,15 +84,16 @@ class TimerSideBar extends Component {
                     </a>
 
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="1" href="#">1:00</a>
-                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="2" href="#">2:00</a>
-                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="3" href="#">3:00</a>
-                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="4" href="#">4:00</a>
-                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="5" href="#">5:00</a>
-                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="6" href="#">6:00</a>
-                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="7" href="#">7:00</a>
-                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="8" href="#">8:00</a>
-                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="9" href="#">9:00</a>
+                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="0" href="#">00:00</a>
+                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="1" href="#">01:00</a>
+                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="2" href="#">02:00</a>
+                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="3" href="#">03:00</a>
+                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="4" href="#">04:00</a>
+                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="5" href="#">05:00</a>
+                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="6" href="#">06:00</a>
+                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="7" href="#">07:00</a>
+                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="8" href="#">08:00</a>
+                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="9" href="#">09:00</a>
                         <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="10" href="#">10:00</a>
                         <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="11" href="#">11:00</a>
                         <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="12" href="#">12:00</a>
@@ -108,7 +108,6 @@ class TimerSideBar extends Component {
                         <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="21" href="#">21:00</a>
                         <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="22" href="#">22:00</a>
                         <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="23" href="#">23:00</a>
-                        <a className="dropdown-item" onClick={this.handleDropdownClick} data-time="0" href="#">00:00</a>
                     </div>
                 </div>
             </div>

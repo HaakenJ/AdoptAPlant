@@ -77,7 +77,7 @@ class Landing extends Component {
                                     </div>
                                     <div className="data-item">
                                         <div>Moisture Level: </div>
-                                        <div>{this.state.soilMoisture}%</div>
+                                        <div>{this.state.soilMoisture}</div>
                                     </div>
                                     <div className="data-item">
                                         <div>Temp: </div>
