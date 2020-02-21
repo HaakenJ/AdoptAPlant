@@ -32,7 +32,7 @@ firebase.initializeApp({
 
 const db = firebase.app().database();
 
-const ref = db.ref("commands/time");
+const ref = db.ref("commands/timerBool");
 
 
 
@@ -44,7 +44,7 @@ const waterJob = new CronJob('* * * * * *', () => {
         .then(() => {
             setTimeout(() => {
                 setPumpState("off");
-                ref.set({
+                ref.update({
                         water: false
                     })
                     .catch(err => {
@@ -67,10 +67,13 @@ const waterJob = new CronJob('* * * * * *', () => {
 // Listen for changs to the database.
 ref.on("value", snap => {
     // If waterTime is set to false rather than a time, stop the job.
-    if (!snap.val().waterTime) {
+    if (!snap.val()) {
+        console.log("Stopping job");
         waterJob.stop();
     } else {
+        console.log("Starting job");
         const newCronTime = cronTime.everyDayAt(snap.time);
+        console.log(newCronTime);
         waterJob.setTime(newCronTime);
         waterJob.start();
     }
