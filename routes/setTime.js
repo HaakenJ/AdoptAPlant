@@ -11,6 +11,7 @@ const db = firebase.app().database();
 const ref = db.ref("commands/");
 
 router.post("/set-time", (req, res) => {
+  console.log(req.body.time);
   ref.set({ time: req.body.time })
   .then(() => {
       res.status(200).end();

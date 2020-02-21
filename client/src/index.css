@@ -227,6 +227,11 @@ body, html, .App, #root, .auth-wrapper {
   }
 }
 
+.dropdown-menu {
+  max-height: 350px;
+  overflow-y: scroll;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .auth-inner {
     padding: 40px 10px 45px 10px;

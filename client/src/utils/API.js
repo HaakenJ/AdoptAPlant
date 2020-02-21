@@ -48,6 +48,6 @@ export default {
     return axios.get('/light');
   },
   setTime: function(time) {
-    return axios.post('/set-time', time);
+    return axios.post('/set-time', { time: time });
   }
 };
