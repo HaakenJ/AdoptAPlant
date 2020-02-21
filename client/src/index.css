@@ -141,6 +141,11 @@ body, html, .App, #root, .auth-wrapper {
   opacity: .9;
 }
 
+.timer-header {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
 @media only screen and (min-width: 1024px) {
   body {
     overflow: hidden;
