@@ -4,7 +4,7 @@ import WaterBtn from "../components/Buttons/WaterBtn";
 import LightOnBtn from "../components/Buttons/LightOnBtn";
 import LightOffBtn from "../components/Buttons/LightOffBtn";
 import Nav from "../components/Nav";
-import Dropdown from "../components/Dropdown";
+import TimerSideBar from "../components/TimerSideBar";
 import API from "../utils/API";
 
 
@@ -106,15 +106,7 @@ class Landing extends Component {
                         </div>
 
                     </div >
-                    <div className="auth-inner temp-container col col-sm-3" id="ContainerRight">
-                            <br></br>
-                            <p className="plant-info"><strong>Plant Name:</strong> Welsh Onion</p>
-                            <p className="plant-info"><strong>Scientific Name:</strong> Allium Fistulosum</p>
-                            <p className="plant-info"><strong>Optimum Temperature:</strong> 68-77 Degrees F</p>
-                            <p className="plant-info"><strong>Time from Seed to Harvest:</strong> 40-50 Days.</p>
-                            <br></br>      
-                            <Dropdown />                           
-                    </div>
+                    <TimerSideBar />
                 </div>
             </div >
         );

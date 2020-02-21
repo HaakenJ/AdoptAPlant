@@ -47,7 +47,16 @@ export default {
   getLightState: function() {
     return axios.get('/light');
   },
+  getTimeAndJobStatus: function() {
+    return axios.get('/get-time');
+  },
   setTime: function(time) {
     return axios.post('/set-time', { time: time });
+  },
+  startJob: function() {
+    return axios.post('/start-job');
+  },
+  stopJob: function() {
+    return axios.post('/stop-job');
   }
 };

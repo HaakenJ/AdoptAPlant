@@ -61,8 +61,27 @@ function readSoilMoisture() {
         const percentDry = (adjValue / range) * 100;
         const moistureContent = Math.round(100 - percentDry);
 
-        console.log(rawValue);
-        resolve(moistureContent);
+        let soilState;
+
+        switch (moistureContent) {
+          case moistureContent <= 20:
+            soilState = "Very Dry";
+            break;
+          case 20 < moistureContent <= 35:
+            soilState = "Dry";
+            break;
+          case 35 < moistureContent <= 60:
+            soilState = "Damp";
+            break;
+          case 60 < moistureContent <= 75:
+            soilState = "Wet";
+            break;
+          default:
+            soilState = "Very Wet";
+        }
+
+        console.log(rawValue, soilState);
+        resolve(soilState);
       })
     })
   })
