@@ -19,8 +19,8 @@ h1,h2,h3,h4,h5,h6,label,span {
   font-family: 'Fira Sans', sans-serif;
 }
 
-.row {
-  margin: 0;
+.landing-container {
+  margin: 0 10px;
 }
 
 body,
