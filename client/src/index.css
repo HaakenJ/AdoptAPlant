@@ -19,8 +19,8 @@ h1,h2,h3,h4,h5,h6,label,span {
   font-family: 'Fira Sans', sans-serif;
 }
 
-.row {
-  margin: 0;
+.landing-container {
+  margin: 0 10px;
 }
 
 body,
@@ -133,12 +133,18 @@ body, html, .App, #root, .auth-wrapper {
 }
 
 .plant-info {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
-.temp-container {
+div.side-container {
   background-color: #eaf2e7;
   opacity: .9;
+  padding: 20px;
+}
+
+.timer-header {
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -147,7 +153,7 @@ body, html, .App, #root, .auth-wrapper {
   }
 
   .plant-info {
-    font-size: 1.7rem;
+    font-size: 1rem;
   }
 }
 
@@ -203,10 +209,10 @@ body, html, .App, #root, .auth-wrapper {
     margin: 0 10px;
   }
 
-  .temp-container {
+  div.side-container {
     margin-top: 50px;
     max-height: 600px;
-    
+    padding: 20px;
   }
 
   .col {
@@ -225,6 +231,11 @@ body, html, .App, #root, .auth-wrapper {
   div.stream-container {
     padding: 40px 4px 70px;
   }
+}
+
+.dropdown-menu {
+  max-height: 350px;
+  overflow-y: scroll;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {

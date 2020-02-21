@@ -27,7 +27,7 @@ ref.on("value", snap => {
             .then(() => {
                 setTimeout(() => {
                     setPumpState("off");
-                    ref.set({
+                    ref.update({
                             water: false
                         })
                         .catch(err => {
