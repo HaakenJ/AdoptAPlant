@@ -54,10 +54,34 @@ ref.on("value", snap => {
         console.log("Stopping job");
         waterJob.stop();
     } else {
+        let newCronTime = ``;
         console.log("Starting job");
         console.log(snap.val().waterAt);
-        // const newCronTime = cronTime.everyDayAt(snap.val().waterAt);
-        const newCronTime = cronGen.everyMinute();
+        console.log(snap.val().frequency);
+        // newCronTime = cronTime.everyDayAt(snap.val().waterAt);
+        switch (snap.val().frequency) {
+            case "Every Day":
+                newCronTime = cronTime.everyDayAt(snap.val().waterAt);
+                break;
+            case "Every Other Day":
+                newCronTime = `0 ${snap.val().waterAt} */2 * *`;
+                break;
+            case "Every Three Days":
+                newCronTime = `0 ${snap.val().waterAt} */3 * *`;
+                break;
+            case "Every Four Days":
+                newCronTime = `0 ${snap.val().waterAt} */4 * *`;
+                break;
+            case "Every Five Days":
+                newCronTime = `0 ${snap.val().waterAt} */5 * *`;
+                break;
+            case "Every Six Days":
+                newCronTime = `0 ${snap.val().waterAt} */6 * *`;
+                break;
+            default:
+                newCronTime = `0 ${snap.val().waterAt} */7 * *`;
+        }
+        // const newCronTime = cronGen.everyMinute();
         console.log(newCronTime);
         const time = new CronTime(newCronTime);
         waterJob.setTime(time);

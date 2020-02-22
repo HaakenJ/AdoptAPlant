@@ -53,6 +53,9 @@ export default {
   setTime: function(time) {
     return axios.post('/set-time', { time: time });
   },
+  setFrequency: function(frequency) {
+    return axios.post('/set-freq', { frequency: frequency });
+  },
   startJob: function() {
     return axios.post('/start-job');
   },
