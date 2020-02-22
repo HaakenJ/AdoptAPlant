@@ -22,6 +22,19 @@ router.post("/set-time", (req, res) => {
     })
 })
 
+// Route to set the water frequency
+router.post("/set-freq", (req, res) => {
+  ref.update({
+      frequency: req.body.frequency
+    })
+    .then(response => {
+      res.status(200).end();
+    })
+    .catch(err => {
+      console.log(`There was an error updating firebase: ${err}`);
+    })
+})
+
 // Route to get the status of the schedule time and runJob parameter
 router.get("/get-time", (req, res) => {
   ref.once("value", snap => {
