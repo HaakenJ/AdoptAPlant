@@ -21,29 +21,28 @@ const ref = db.ref("commands/time");
 // // the time is set at default of every second but will be changed when a 
 // // command is received from the database.
 const waterJob = new CronJob('* * * * * *', () => {
-    console.log("Pump just ran");
-    // setPumpState('on')
-    //     .then(() => {
-    //         setTimeout(() => {
-    //             setPumpState("off");
-    //             ref.update({
-    //                     water: false
-    //                 })
-    //                 .catch(err => {
-    //                     console.log(`There was an error writing to the 
-    //                 database: ${err}`);
-    //                     // Exit the script, if we can't change the water command
-    //                     // back to false then the pump will run continuously.
-    //                     process.exit();
-    //                 })
-    //         }, 2000);
-    //     })
-    //     .catch(err => {
-    //         console.log(`Error with water pump: ${err}`);
-    //         // Exit the script, something is wrong with the pump so we don't want
-    //         // to continue trying to run it.
-    //         process.exit();
-    //     });
+    setPumpState('on')
+        .then(() => {
+            setTimeout(() => {
+                setPumpState("off");
+                ref.update({
+                        water: false
+                    })
+                    .catch(err => {
+                        console.log(`There was an error writing to the 
+                    database: ${err}`);
+                        // Exit the script, if we can't change the water command
+                        // back to false then the pump will run continuously.
+                        process.exit();
+                    })
+            }, 2000);
+        })
+        .catch(err => {
+            console.log(`Error with water pump: ${err}`);
+            // Exit the script, something is wrong with the pump so we don't want
+            // to continue trying to run it.
+            process.exit();
+        });
 }, null, false, 'America/Los_Angeles');
 
 // Listen for changes to the database.
@@ -80,8 +79,8 @@ ref.on("value", snap => {
             default:
                 newCronTime = `0 ${snap.val().waterAt} */7 * *`;
         }
-        // const newCronTime = cronGen.everyMinute();
         console.log(newCronTime);
+        newCronTime = '* * * * *';
         const time = new CronTime(newCronTime);
         waterJob.setTime(time);
         waterJob.start();
