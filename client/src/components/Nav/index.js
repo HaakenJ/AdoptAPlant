@@ -6,7 +6,7 @@ import API from "../../utils/API";
 const handleLogOutClick = () => {
   API.logOutUser()
   .then(() => {
-      localStorage.removeItem("username");
+      localStorage.clear();
   })
   .catch(err => {
       console.log(`There was an error logging out: ${err}`);
@@ -17,8 +17,13 @@ function Nav(props) {
   return (
     <nav className="navbar navbar-expand-sm navbar-light fixed-top">
       <div className="container">
+        {props.isLoggedIn ? (
+          <a className="navbar-brand" href="/landing">
+            <img src={logo} alt="logo" />HOME</a>
+        ): (
         <a className="navbar-brand" href="/">
           <img src={logo} alt="logo" />HOME</a>
+        )}
         <div className="navbar-expand" id="navbarContent">
           {props.isLoggedIn ? (
             <ul className="navbar-nav ml-auto">
