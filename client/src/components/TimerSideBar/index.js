@@ -76,15 +76,18 @@ class TimerSideBar extends Component {
             <div className="auth-inner side-container mt-3" id="ContainerRight">
                 {
                     this.state.isJobRunning ?
-                        <div className="mb-3">
-                            <button type="button" className="btn btn-dark mb-3" onClick={this.stopJob} >Cancel Schedule</button>
+                        <div className="">
+                            <button type="button" className="btn btn-dark " onClick={this.stopJob} >Cancel Schedule</button>
                             <p className="timer-header">Watering {this.state.frequency} at: {this.state.time}:00</p>
                         </div> 
                         :
-                        <div className="mb-3">
-                            <button type="button" className="btn btn-light mb-3" onClick={this.startJob} >Start Schedule</button>
-                            <p className="timer-header">Water {this.state.frequency} at: {this.state.time}:00</p>
-                            <p>Water schedule is not currently running</p>
+                        <div className="">
+                            <button type="button" className="btn btn-light " onClick={this.startJob} >Start Schedule</button>
+                            {
+                                this.state.time ? 
+                                    <p className="timer-header">Water {this.state.frequency} at: {this.state.time}:00</p> :
+                                    <p className="timer-header">Select a fequency and time.</p>
+                            }
                         </div>
                 }
 
@@ -105,7 +108,7 @@ class TimerSideBar extends Component {
                     </div>
                 </div>
 
-                <p className="timer-header mt-3">At: </p>
+                <p className="timer-header">At: </p>
                 <div className="dropdown show">
                     <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Choose a Time

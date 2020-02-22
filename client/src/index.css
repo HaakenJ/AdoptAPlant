@@ -139,12 +139,13 @@ body, html, .App, #root, .auth-wrapper {
 div.side-container {
   background-color: #eaf2e7;
   opacity: .9;
-  padding: 20px;
+  padding: 10px 20px 10px 20px;
 }
 
 .timer-header {
   font-size: 1.2rem;
   font-weight: 500;
+  margin: 10px 0 5px 0;
 }
 
 @media only screen and (min-width: 1024px) {

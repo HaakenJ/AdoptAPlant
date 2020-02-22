@@ -1,5 +1,4 @@
 const firebase = require('firebase');
-const cronGen = require('cron-time-generator');
 const CronTime = require('cron').CronTime;
 const CronJob = require('cron').CronJob;
 // const setPumpState = require('../controllers/pump');
@@ -61,7 +60,7 @@ ref.on("value", snap => {
         // newCronTime = cronTime.everyDayAt(snap.val().waterAt);
         switch (snap.val().frequency) {
             case "Every Day":
-                newCronTime = cronTime.everyDayAt(snap.val().waterAt);
+                newCronTime = `0 ${snap.val().waterAt} * * *`;
                 break;
             case "Every Other Day":
                 newCronTime = `0 ${snap.val().waterAt} */2 * *`;

@@ -99,7 +99,7 @@ class Landing extends Component {
                             </div>
                         </div>
                     </div >
-                    <div className="col col-sm-12 col-md-4">
+                    <div className="col col-sm-12 col-md-4 right-side">
                         <div className="row">
                             <div className="col-sm-12">
                                 <div className="auth-inner side-container" id="ContainerRight">
