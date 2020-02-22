@@ -1,7 +1,8 @@
 const firebase = require('firebase');
+const cron = require('cron');
 const CronTime = require('cron').CronTime;
 const CronJob = require('cron').CronJob;
-// const setPumpState = require('../controllers/pump');
+const setPumpState = require('../controllers/pump');
 
 firebase.initializeApp({
     appName: "adoptaplant",
@@ -43,7 +44,7 @@ const waterJob = new CronJob('* * * * * *', () => {
             // to continue trying to run it.
             process.exit();
         });
-}, null, false, 'America/Los_Angeles');
+}, null, false, null, null, null, 'UTC-08:00');
 
 // Listen for changes to the database.
 ref.on("value", snap => {
@@ -80,7 +81,7 @@ ref.on("value", snap => {
                 newCronTime = `0 ${snap.val().waterAt} */7 * *`;
         }
         console.log(newCronTime);
-        newCronTime = '* * * * *';
+        // newCronTime = '15 19 * * *';
         const time = new CronTime(newCronTime);
         waterJob.setTime(time);
         waterJob.start();
