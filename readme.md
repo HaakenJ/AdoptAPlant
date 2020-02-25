@@ -8,64 +8,66 @@ AdoptAPlant is a web-based service that allows users to adopt plants for a month
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+### Prerequisites and Installation
 
-What things you need to install the software and how to install them
+You will need a Raspberry Pi for this application.  Specifically, this application was created with a Raspberry Pi 4.  The parts needed 
+in order to get a Raspberry Pi up and running will not be discussed here.
 
+#### RasPi Parts List
+    * DHT11 temperature and humidity sensor
+    * A water pump (I used a 12V 3.6W fountain water pump made by Yeeco)
+    * A breadboard and assorted dupont wires (jumpers and male-female)
+    * Raspberry Pi Camera Module (I used the V2 8-megapixel version)
+    * 5V Relay Module
+    * 5V power supply for water pump
+    * Capacitive Soil Moisture Sensor
+    * MCP3008 Analog-to-Digital Converter
+    * Hose from water pump to plant
+    * Various basic gardening equipment (pot, soil, etc.)
+
+I will not go into detail for how to wire up the different components, there are ample resources for this around the web.  
+
+What you will need to do is connect the components to the proper ports on the Raspberry Pi though.  
+
+#### RasPi Connections
+    * DHT11 sensor needs to be connected to GPIO port #17
+    * The water pump will need to be on GPIO port #27
+    * Connect the Raspberry Pi SPI ports to the MCP3008 according to the below diagram with the data of the soil moisture sensor connected to channel 5.  Make sure to enable SPI in your raspi-config
+        <![MCP3008 Diagram](https://components101.com/sites/default/files/component_pin/MCP3008-ADC-Pinout.png)>
+
+#### Camera Setup
+    * Folow [this](https://www.instructables.com/id/How-to-Make-Raspberry-Pi-Webcam-Server-and-Stream-/) tutorial to set up your camera.
+    * Get your Raspberry Pi's IP address and go to /client/src/components/PlantStream/index.js and set the src of the <img> element to your Raspberry Pi's IP address with port :8081 specified at the end.
+
+#### Firebase Setup
+    * Create a Google Firebase account, a Realtime Database, and a new service account.
+    * Download your service-account.json file and save it to the root folder.
+    * Replace the "firebase.initializeApp" code in /controllers/logSensors, pumpQuery, and waterTimer with your own firebase app code.
+
+#### Crontab Setup
+    * Enter your crontab on your Raspberry Pi and set the /controllers/logSensors.js file to run at whatever interval you would like to log the sensor data.
+    * Set both controllers/pumpQuery.js and waterTimer.js to run every minute, close the crontab then enter again to remove the lines for these two files.  This should set those files to run in the background to listen to firebase for changes.  You can check whether these two processes are running by typing:
+    ```
+    ps -aux
+    ```
+    in your terminal.  You should see both files listed towards the bottom of the list.
+
+Run
 ```
-Give examples
+npm install
+npm start
 ```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+And you'll be up and running!
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+If you would like to have this site hosted via heroku or some other hosting service, you will need to forward port 8081 on your home network to allow the stream to be accessible.  Do this at your own discression as it opens up many security concerns.
 
 ## Built With
 
 * [Node.js](https://nodejs.org/en/) - Javascript Runtime
-* [MySQL](https://www.mysql.com/) - Relational Database Management System
 * [Express](https://expressjs.com/) - Node.js Web Framework
-* [Express-Handlebars](https://www.npmjs.com/package/express-handlebars) - Template Engine
-* [jQuery](https://jquery.com/) - Front-End JavaScript Library
-* [Materialize](https://materializecss.com/) - Front-End Web Framework
+* [React](https://reactjs.org/) - JavaScript Library for User Interface
 * [MongoDB](https://www.mongodb.com/) - NoSQL database service
 * [Cheerio](https://www.npmjs.com/package/cheerio) - Web markup parser
 * [SASS](https://sass-lang.com/) - Stylesheet language
