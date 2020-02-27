@@ -33,11 +33,14 @@ What you will need to do is connect the components to the proper ports on the Ra
     * DHT11 sensor needs to be connected to GPIO port #17
     * The water pump will need to be on GPIO port #27
     * Connect the Raspberry Pi SPI ports to the MCP3008 according to the below diagram with the data of the soil moisture sensor connected to channel 5.  Make sure to enable SPI in your raspi-config
-        <![MCP3008 Diagram](https://components101.com/sites/default/files/component_pin/MCP3008-ADC-Pinout.png)>
+        
+<![MCP3008 Diagram](https://components101.com/sites/default/files/component_pin/MCP3008-ADC-Pinout.png)>
 
 #### Camera Setup
-    * Folow [this](https://www.instructables.com/id/How-to-Make-Raspberry-Pi-Webcam-Server-and-Stream-/) tutorial to set up your camera.
+    * Folow the below tutorial to set up your camera.
     * Get your Raspberry Pi's IP address and go to /client/src/components/PlantStream/index.js and set the src of the <img> element to your Raspberry Pi's IP address with port :8081 specified at the end.
+
+[Tutorial](https://www.instructables.com/id/How-to-Make-Raspberry-Pi-Webcam-Server-and-Stream-/)
 
 #### Firebase Setup
     * Create a Google Firebase account, a Realtime Database, and a new service account.
@@ -46,11 +49,14 @@ What you will need to do is connect the components to the proper ports on the Ra
 
 #### Crontab Setup
     * Enter your crontab on your Raspberry Pi and set the /controllers/logSensors.js file to run at whatever interval you would like to log the sensor data.
-    * Set both controllers/pumpQuery.js and waterTimer.js to run every minute, close the crontab then enter again to remove the lines for these two files.  This should set those files to run in the background to listen to firebase for changes.  You can check whether these two processes are running by typing:
-    ```
-    ps -aux
-    ```
-    in your terminal.  You should see both files listed towards the bottom of the list.
+    * Set both controllers/pumpQuery.js and waterTimer.js to run every minute, close the crontab then enter again to remove the lines for these two files.  
+    This should set those files to run in the background to listen to firebase for changes.  
+
+You can check whether these two processes are running by typing:
+```
+ps -aux
+```
+in your terminal.  You should see both files listed towards the bottom of the list.
 
 Run
 ```
@@ -61,7 +67,8 @@ And you'll be up and running!
 
 ## Deployment
 
-If you would like to have this site hosted via heroku or some other hosting service, you will need to forward port 8081 on your home network to allow the stream to be accessible.  Do this at your own discression as it opens up many security concerns.
+If you would like to have this site hosted via heroku or some other hosting service, you will need to forward port 8081 on your home network to allow the stream to be accessible.  
+Do this at your own discression as it opens up many security concerns.
 
 ## Built With
 
