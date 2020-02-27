@@ -69,30 +69,15 @@ If you would like to have this site hosted via heroku or some other hosting serv
 * [Express](https://expressjs.com/) - Node.js Web Framework
 * [React](https://reactjs.org/) - JavaScript Library for User Interface
 * [MongoDB](https://www.mongodb.com/) - NoSQL database service
-* [Cheerio](https://www.npmjs.com/package/cheerio) - Web markup parser
-* [SASS](https://sass-lang.com/) - Stylesheet language
+* [Passport](http://www.passportjs.org/) - Node.js Authentication
 * [Axios](https://www.npmjs.com/package/axios) - Promise based HTTP client
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+* [Firebase Realtime Database](https://firebase.google.com/) - Realtime cloud database
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Matthew Kiyoi** - [Mkkiyoi](https://github.com/Mkkiyoi)
+* **Kyle Lamont** - [KyleRLamont](https://github.com/KyleRLamont)
+* **Surenkhuu Shagdarsuren** - [slodway2019](https://github.com/slodway2019)
+* **Kramer Johnson** - [HaakenJ](https://github.com/HaakenJ)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+See also the list of [contributors](https://github.com/AdoptAPlant/contributors) who participated in this project.
