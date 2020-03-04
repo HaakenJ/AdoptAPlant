@@ -5,6 +5,13 @@ import LightOnBtn from "../components/Buttons/LightOnBtn";
 import LightOffBtn from "../components/Buttons/LightOffBtn";
 import Nav from "../components/Nav";
 import TimerSideBar from "../components/TimerSideBar";
+
+import plantImg from "../images/plantImg.png";
+import waterGif from "../images/watering-gif.gif";
+import lightOffGif from "../images/light-off-gif.gif";
+import lightOnGif from "../images/light-on-gif.gif";
+import lightOffImg from "../images/light-off.png";
+
 import API from "../utils/API";
 
 
@@ -14,8 +21,8 @@ class Landing extends Component {
         temp: 68,
         soilMoisture: "Wet",
         isLoggedIn: false,
-        lightState: "off"
-
+        lightState: "off",
+        streamImg: plantImg
     }
 
     componentDidMount = () => {
@@ -44,26 +51,64 @@ class Landing extends Component {
     }}
 
     getLightState = () => {
-        API.getLightState()
-        .then(response => {
-            this.setState({
-                lightState: response.data
-            })
-        })
-        .catch(err => {
-            console.log(`There was an error getting the light state: ${err}`);
+        // API.getLightState()
+        // .then(response => {
+        //     this.setState({
+        //         lightState: response.data
+        //     })
+        // })
+        // .catch(err => {
+        //     console.log(`There was an error getting the light state: ${err}`);
+        // })
+        this.setState({
+            lightState: "on"
         })
     }
 
     handleLightClick = () => {
-        API.toggleLight()
-        .then(response => {
-            this.getLightState();
-        })
+        // API.toggleLight()
+        // .then(response => {
+        //     this.getLightState();
+        // })
+        if (this.state.lightState === "on") {
+            this.setState({
+                streamImg: lightOffGif
+            },
+            () => {
+                setTimeout(() => {
+                    this.setState({
+                        streamImg: lightOffImg,
+                        lightState: "off"
+                    })
+                }, 1000)
+            })
+        } else {
+            this.setState({
+                streamImg: lightOnGif
+            },
+            () => {
+                setTimeout(() => {
+                    this.setState({
+                        streamImg: plantImg,
+                        lightState: "on"
+                    })
+                }, 2000)
+            })
+        }
     }
 
     handleWaterButton = () => {
-        API.waterPlant()
+        // API.waterPlant()
+        this.setState({
+                streamImg: waterGif
+            },
+            () => {
+                setTimeout(() => {
+                    this.setState({
+                        streamImg: plantImg
+                    })
+                }, 3500)
+            })
     }
 
     render() {
@@ -91,7 +136,7 @@ class Landing extends Component {
                                     </div>
                                 </div>
                                 <div className="micro col col-sm-8">
-                                    <PlantStream/>
+                                    <PlantStream streamImg={this.state.streamImg}/>
 
                                     <br></br>
                         
@@ -110,10 +155,15 @@ class Landing extends Component {
                             <div className="col-sm-12">
                                 <div className="auth-inner side-container" id="ContainerRight">
                                     <br></br>
-                                    <p className="plant-info"><strong>Plant Name:</strong> Welsh Onion</p>
+                                    <p className="plant-info">
+                                        Unfortunately, due to space and power concerns, the plant system has been
+                                        taken down.  Here you will see an image of the former live stream along with 
+                                        gifs displaying the functionality in action.  Enjoy!
+                                    </p>
+                                    {/* <p className="plant-info"><strong>Plant Name:</strong> Welsh Onion</p>
                                     <p className="plant-info"><strong>Scientific Name:</strong> Allium Fistulosum</p>
                                     <p className="plant-info"><strong>Optimum Temperature:</strong> 68-77 Degrees F</p>
-                                    <p className="plant-info"><strong>Time from Seed to Harvest:</strong> 40-50 Days.</p>
+                                    <p className="plant-info"><strong>Time from Seed to Harvest:</strong> 40-50 Days.</p> */}
                                     <br></br>
                                 </div>
                             </div>
