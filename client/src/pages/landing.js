@@ -5,6 +5,10 @@ import LightOnBtn from "../components/Buttons/LightOnBtn";
 import LightOffBtn from "../components/Buttons/LightOffBtn";
 import Nav from "../components/Nav";
 import TimerSideBar from "../components/TimerSideBar";
+
+import plantImg from "../images/plantImg.png";
+import waterGif from "../images/watering-gif.gif";
+
 import API from "../utils/API";
 
 
@@ -14,8 +18,8 @@ class Landing extends Component {
         temp: 68,
         soilMoisture: "Wet",
         isLoggedIn: false,
-        lightState: "off"
-
+        lightState: "off",
+        streamImg: plantImg
     }
 
     componentDidMount = () => {
@@ -63,7 +67,17 @@ class Landing extends Component {
     }
 
     handleWaterButton = () => {
-        API.waterPlant()
+        // API.waterPlant()
+        this.setState({
+                streamImg: waterGif
+            },
+            () => {
+                setTimeout(() => {
+                    this.setState({
+                        streamImg: plantImg
+                    })
+                }, 3500)
+            })
     }
 
     render() {
@@ -91,7 +105,7 @@ class Landing extends Component {
                                     </div>
                                 </div>
                                 <div className="micro col col-sm-8">
-                                    <PlantStream/>
+                                    <PlantStream streamImg={this.state.streamImg}/>
 
                                     <br></br>
                         
