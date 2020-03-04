@@ -8,6 +8,9 @@ import TimerSideBar from "../components/TimerSideBar";
 
 import plantImg from "../images/plantImg.png";
 import waterGif from "../images/watering-gif.gif";
+import lightOffGif from "../images/light-off-gif.gif";
+import lightOnGif from "../images/light-on-gif.gif";
+import lightOffImg from "../images/light-off.png";
 
 import API from "../utils/API";
 
@@ -48,22 +51,50 @@ class Landing extends Component {
     }}
 
     getLightState = () => {
-        API.getLightState()
-        .then(response => {
-            this.setState({
-                lightState: response.data
-            })
-        })
-        .catch(err => {
-            console.log(`There was an error getting the light state: ${err}`);
+        // API.getLightState()
+        // .then(response => {
+        //     this.setState({
+        //         lightState: response.data
+        //     })
+        // })
+        // .catch(err => {
+        //     console.log(`There was an error getting the light state: ${err}`);
+        // })
+        this.setState({
+            lightState: "on"
         })
     }
 
     handleLightClick = () => {
-        API.toggleLight()
-        .then(response => {
-            this.getLightState();
-        })
+        // API.toggleLight()
+        // .then(response => {
+        //     this.getLightState();
+        // })
+        if (this.state.lightState === "on") {
+            this.setState({
+                streamImg: lightOffGif
+            },
+            () => {
+                setTimeout(() => {
+                    this.setState({
+                        streamImg: lightOffImg,
+                        lightState: "off"
+                    })
+                }, 1000)
+            })
+        } else {
+            this.setState({
+                streamImg: lightOnGif
+            },
+            () => {
+                setTimeout(() => {
+                    this.setState({
+                        streamImg: plantImg,
+                        lightState: "on"
+                    })
+                }, 2000)
+            })
+        }
     }
 
     handleWaterButton = () => {
