@@ -12,15 +12,16 @@ class Landing extends Component {
     state = {
         humidity: 65,
         temp: 68,
-        soilMoisture: 30,
+        soilMoisture: "Wet",
         isLoggedIn: false,
         lightState: "off"
+
     }
 
     componentDidMount = () => {
         this.getSensorData();
-        this.setState({isLoggedIn:true});
         this.getLightState();
+        this.loginternary();
     }
 
     getSensorData = () => {
@@ -36,6 +37,11 @@ class Landing extends Component {
             console.log(`Error with firebase: ${err}`);
         })
     }
+
+    loginternary = () => {
+        if (localStorage.getItem("username")) {
+            this.setState({ isLoggedIn: true })
+    }}
 
     getLightState = () => {
         API.getLightState()

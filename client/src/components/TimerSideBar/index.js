@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Dropdown from '../Dropdown';
 import API from '../../utils/API';
 
 class TimerSideBar extends Component {
