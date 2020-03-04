@@ -12,7 +12,7 @@ class Landing extends Component {
     state = {
         humidity: 65,
         temp: 68,
-        soilMoisture: 30,
+        soilMoisture: "Wet",
         isLoggedIn: false,
         lightState: "off"
 
