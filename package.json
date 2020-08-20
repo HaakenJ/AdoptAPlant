@@ -25,7 +25,7 @@
   "homepage": "https://github.com/HaakenJ/AdoptAPlant#readme",
   "dependencies": {
     "axios": "^0.19.2",
-    "bcrypt": "^3.0.8",
+    "bcrypt": "^5.0.0",
     "concurrently": "^5.1.0",
     "connect-mongo": "^3.2.0",
     "cron": "^1.8.2",
