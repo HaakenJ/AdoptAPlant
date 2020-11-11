@@ -14,11 +14,11 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route exact path='/' component={Welcome} />
-          <Route exact path="/log-in" component={UserLogin} />
-          <Route exact path="/sign-up" component={SignUp} />
+          <Route exact path='/' component={Landing} />
+          {/* <Route exact path="/log-in" component={UserLogin} />
+          <Route exact path="/sign-up" component={SignUp} /> */}
           <Route exact path="/landing" component={Landing} />
-          <Route exact path="/myaccount" component={MyAccount} />
+          {/* <Route exact path="/myaccount" component={MyAccount} /> */}
           <Route component={NotFound} />
         </Switch>
       </div>
