@@ -32,21 +32,21 @@ function Nav(props) {
                 `${localStorage.getItem("username")}'s`: 
                 "My"} Account</a>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link" href="/" onClick={handleLogOutClick}>Log Out</a>
-              </li>
+              </li> */}
             </ul>
           ) : (
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
                   <a className="nav-link" href="/landing">Guest Access</a>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <a className="nav-link" href="/log-in">Login</a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="/sign-up">Sign up</a>
-                </li>
+                </li> */}
               </ul>
             )}
         </div>

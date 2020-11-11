@@ -1,8 +1,8 @@
 const express = require("express");
-let passport = require('passport');
+// let passport = require('passport');
 let session = require('express-session');
-const mongoose = require("mongoose");
-const MongoStore = require('connect-mongo')(session)
+// const mongoose = require("mongoose");
+// const MongoStore = require('connect-mongo')(session)
 const routes = require("./routes");
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -13,21 +13,21 @@ app.use(express.json());
 
 // PassportJS
 
-require('./config/passport');
+// require('./config/passport');
 
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
-// Connect to the Mongo Database
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/adoptaplant", 
-{ useNewUrlParser: true, useUnifiedTopology: true });
+// // Connect to the Mongo Database
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/adoptaplant", 
+// { useNewUrlParser: true, useUnifiedTopology: true });
 
-app.use(session({
-  secret: 'plants are awesome',
-  store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  resave: true,
-  saveUninitialized: true
-}));
+// app.use(session({
+//   secret: 'plants are awesome',
+//   store: new MongoStore({ mongooseConnection: mongoose.connection }),
+//   resave: true,
+//   saveUninitialized: true
+// }));
 
 
 
